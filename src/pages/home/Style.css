@@ -1,0 +1,2168 @@
+:root {
+    /* Cores principais */
+    --color-background: #0C090D;
+    --color-primary: #01BAEF;
+    --color-secondary: #9D00FF;
+    --color-accent: #007BFF;
+    --color-text-primary: #FFF;
+    --color-text-secondary: #E0E0E0;
+    
+    /* Cores com transparência */
+    --color-background-transparent: rgba(12, 9, 13, 0.7);
+    --color-primary-transparent: rgba(1, 186, 239, 0.1);
+    --color-primary-transparent-medium: rgba(1, 186, 239, 0.2);
+    --color-primary-transparent-high: rgba(1, 186, 239, 0.3);
+    --color-secondary-transparent: rgba(157, 0, 255, 0.2);
+    --color-secondary-transparent-medium: rgba(217, 56, 242, 0.2);
+    --color-secondary-glow: rgba(157, 0, 255, 0.7);
+    --color-primary-glow: rgba(1, 186, 239, 0.6);
+    
+    /* Cores para gradientes */
+    --gradient-primary: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    --gradient-wood: linear-gradient(180deg, #d2691e, #8b4513);
+    --gradient-lamp: linear-gradient(to bottom, #a092c2, #6e5a9b);
+    --gradient-lamp-base: linear-gradient(to bottom, #8475a5, #5e4b7a);
+    --gradient-lamp-wire: linear-gradient(to bottom, #b0a0d0, #8475a5);
+    
+    /* Cores para sombras */
+    --shadow-primary: rgba(0, 0, 0, 0.2);
+    --shadow-secondary: rgba(0, 0, 0, 0.3);
+    --shadow-deep: rgba(0, 0, 0, 0.4);
+    --shadow-deeper: rgba(0, 0, 0, 0.5);
+    
+    /* Cores para efeitos de luz */
+    --light-glow: rgba(255, 236, 179, 0.7);
+    --light-glow-strong: rgba(255, 236, 179, 0.9);
+    --light-beam-center: rgba(255, 236, 179, 0.5);
+    --light-beam-edge: rgba(255, 236, 179, 0.1);
+    --light-beam-fade: rgba(255, 236, 179, 0);
+    --light-bulb-light: #fff7d1;
+    --light-bulb-dark: #ffdb7d;
+    --lamp-highlight: rgba(255, 255, 255, 0.3); /* Adicionada a variável que faltava */
+    
+    /* Cores para elementos de interface */
+    --border-subtle: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Variáveis para o modo claro */
+  body:not(.dark-mode) {
+    --color-background: #FFFFFF;
+    --color-primary: #00AEEF;
+    --color-secondary: #8A2BE2;
+    --color-accent: #0066CC;
+    --color-text-primary: #111;
+    --color-text-secondary: #333;
+    
+    /* Cores com transparência para modo claro */
+    --color-background-transparent: rgba(255, 255, 255, 0.7);
+    --color-primary-transparent: rgba(0, 174, 239, 0.1);
+    --color-primary-transparent-medium: rgba(0, 174, 239, 0.2);
+    --color-primary-transparent-high: rgba(0, 174, 239, 0.3);
+    --color-secondary-transparent: rgba(138, 43, 226, 0.2);
+    --color-secondary-transparent-medium: rgba(138, 43, 226, 0.2);
+    --color-secondary-glow: rgba(138, 43, 226, 0.7);
+    --color-primary-glow: rgba(0, 174, 239, 0.6);
+    
+    /* Cores para gradientes no modo claro */
+    --gradient-primary: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    --gradient-wood: linear-gradient(180deg, #e8c39e, #c68c53);
+    --gradient-lamp: linear-gradient(to bottom, #b8aed8, #9384c2);
+    --gradient-lamp-base: linear-gradient(to bottom, #a093c9, #7c6aad);
+    --gradient-lamp-wire: linear-gradient(to bottom, #c8bce0, #a093c9);
+    
+    /* Cores para sombras no modo claro */
+    --shadow-primary: rgba(0, 0, 0, 0.1);
+    --shadow-secondary: rgba(0, 0, 0, 0.15);
+    --shadow-deep: rgba(0, 0, 0, 0.2);
+    --shadow-deeper: rgba(0, 0, 0, 0.25);
+    
+    /* Cores para efeitos de luz no modo claro */
+    --light-glow: rgba(255, 236, 179, 0.6);
+    --light-glow-strong: rgba(255, 236, 179, 0.8);
+    --light-beam-center: rgba(255, 236, 179, 0.4);
+    --light-beam-edge: rgba(255, 236, 179, 0.1);
+    --light-beam-fade: rgba(255, 236, 179, 0);
+    
+    /* Cores para elementos de interface no modo claro */
+    --border-subtle: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Animação para a luz piscar quando mudar para o modo escuro */
+  @keyframes lightFlicker {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0px 10px 40px 25px var(--light-glow);
+    }
+    20% {
+      opacity: 0.3;
+      box-shadow: 0px 5px 10px 5px var(--light-glow);
+    }
+    40% {
+      opacity: 1;
+      box-shadow: 0px 10px 40px 25px var(--light-glow);
+    }
+    60% {
+      opacity: 0.3;
+      box-shadow: 0px 5px 10px 5px var(--light-glow);
+    }
+    80% {
+      opacity: 1;
+      box-shadow: 0px 10px 40px 25px var(--light-glow);
+    }
+  }
+  
+  @keyframes beamFadeIn {
+    0% {
+      opacity: 0;
+    }
+    70% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0.8;
+    }
+  }
+  
+  
+  /* Ocultar a luz da luminária no modo claro */
+  body:not(.dark-mode) .light {
+    box-shadow: none; /* Remove o brilho */
+    opacity: 0.3; /* Torna a lâmpada quase transparente */
+    animation: none; /* Remove a animação de brilho */
+  }
+  
+  body:not(.dark-mode) .light-beam {
+    opacity: 0; /* Oculta completamente o feixe de luz */
+    display: none; /* Garante que o elemento não ocupe espaço */
+  }
+  
+  /* Corrigir cores do menu mobile e ícones no modo claro */
+  body:not(.dark-mode) .mobile-menu-icon {
+    color: var(--color-text-primary); /* Garante que o ícone do menu seja preto no modo claro */
+  }
+  
+  body:not(.dark-mode) .mobile-menu {
+    background-color: var(--color-background); /* Fundo branco no modo claro */
+    border-top: 1px solid var(--color-primary);
+  }
+  
+  body:not(.dark-mode) .mobile-menu a {
+    color: var(--color-text-primary); /* Texto preto no modo claro */
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  
+  /* Estilo para links ativos no menu mobile */
+  .mobile-menu a.active {
+    color: var(--color-primary); /* Usa a cor primária que já muda conforme o modo */
+    font-weight: bold;
+    position: relative;
+  }
+  
+  /* Adicionar linha sob o link ativo, similar ao menu desktop */
+  .mobile-menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+  }
+  
+  /* Garantir que o hover também funcione corretamente */
+  body:not(.dark-mode) .mobile-menu a:hover,
+  body:not(.dark-mode) .mobile-menu a.active {
+    color: var(--color-primary); /* Usa a cor primária do modo claro */
+  }
+  
+  /* Garantir que a cor ativa seja mantida no modo escuro também */
+  .dark-mode .mobile-menu a.active {
+    color: var(--color-primary); /* Usa a cor primária do modo escuro */
+  }
+  
+  body:not(.dark-mode) .Projetos p,
+  body:not(.dark-mode) .projetos-intro,
+  body:not(.dark-mode) .projeto-card p {
+    color: var(--color-text-primary); /* Usa a variável que já muda conforme o modo */
+  }
+  
+  /* Garantir que as tecnologias nos projetos também tenham a cor correta */
+  body:not(.dark-mode) .projeto-tecnologias h4,
+  body:not(.dark-mode) .projeto-tecnologias li {
+    color: var(--color-text-primary);
+  }
+  
+  /* Corrigir cores dos títulos h3 em todas as seções para garantir consistência no modo claro */
+  .Skills h3,
+  .Servicos h3,
+  .Tecnologias h3,
+  .projetos-titulo,
+  .Contato h3 {
+    color: var(--color-text-primary); /* Usa a variável que já muda conforme o modo */
+  }
+  
+  /* Garantir que o texto do footer também mude corretamente */
+  .Footer p {
+    color: var(--color-text-primary);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: var(--color-background);
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+  
+  
+  /* Adicione estas regras no início do seu arquivo CSS, logo após o reset */
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  
+  .content {
+    max-width: calc(100% - 400px);
+    /* 200px de cada lado */
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+  
+  /* Ou se preferir espaçamento em cima e embaixo */
+  section:not(:first-child) {
+    margin-top: 250px;
+    margin-bottom: 250px;
+  }
+  
+  /* Estilos para o botão de alternar tema */
+  .theme-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-background-transparent);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px var(--color-primary-glow);
+    backdrop-filter: blur(5px);
+  }
+  
+  .theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--color-primary-glow);
+  }
+  
+  .theme-toggle:focus {
+    outline: none;
+  }
+  
+  /* Animação para o botão */
+  .theme-toggle svg {
+    transition: transform 0.5s ease;
+  }
+  
+  .theme-toggle:hover svg {
+    transform: rotate(30deg);
+  }
+  
+  
+  .Header {
+    height: 85px;
+    left: 0px;
+    top: 0px;
+    padding: 0px 175px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: transparent;
+    z-index: 1000;
+  }
+  
+  .Header-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .Logo {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 150px;
+  }
+  
+  .Logo img {
+    height: 100%;
+    width: auto;
+  }
+  
+  .Navbar {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  /* Adicione isso no início do seu arquivo CSS para habilitar rolagem suave */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .Navbar a {
+    font-size: 20px;
+    font-family: "Orbitron", sans-serif;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .Navbar a:hover,
+  .Navbar a.active {
+    color: var(--color-primary);
+  }
+  
+  .Navbar a.active {
+    font-weight: bold;
+    position: relative;
+  }
+  
+  .Navbar a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+  }
+  
+  /* Menu mobile */
+  .mobile-menu-icon {
+    display: none;
+    font-size: 24px;
+    color: var(--color-text-primary);
+    cursor: pointer;
+  }
+  
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 85px;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-background);
+    flex-direction: column;
+    padding: 20px;
+    z-index: 999;
+    border-top: 1px solid var(--color-primary);
+    box-shadow: 0 5px 15px var(--shadow-secondary);
+  }
+  
+  .mobile-menu a {
+    color: var(--color-text-primary);
+    font-family: "Orbitron", sans-serif;
+    text-decoration: none;
+    padding: 15px 0;
+    font-size: 18px;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: color 0.3s ease;
+  }
+  
+  .mobile-menu a:hover,
+  .mobile-menu a.active {
+    color: var(--color-primary);
+  }
+  
+  .mobile-menu.open {
+    display: flex;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .mobile-menu-icon {
+      display: block;
+    }
+  
+    .Navbar {
+      display: none;
+    }
+  }
+  
+  
+  section {
+    scroll-margin-top: 100px;
+  }
+  
+  /* ======= SEÇÃO HERO - CORRIGIDA ======= */
+  .Hero {
+    width: 100%;
+    padding: 2rem 0;
+  }
+  
+  .Container-hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .hero-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .hero-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  
+  .imagens-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .Computador {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    z-index: 2;
+    transform: translate(67%, -39%);
+  }
+  
+  .Computador img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+  }
+  
+  /* Estilos para os ícones flutuantes com fundo roxo */
+  .floating-icons {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none; /* Garantir que não bloqueie interações */
+  }
+  
+  .icon-code,
+  .icon-gear {
+    font-size: 32px;
+    color: var(--color-primary);
+    position: absolute;
+    filter: drop-shadow(0 0 8px var(--color-primary-glow));
+    background-color: var(--color-secondary);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px var(--color-secondary-glow);
+    padding: 0;
+    z-index: 4; 
+    opacity: 0;
+  }
+  
+  /* Rabo dos balões */
+  .icon-code::after,
+  .icon-gear::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid var(--color-secondary);
+  }
+  
+  
+  /* Adicionando o "rabo" para o ícone de engrenagem */
+  .icon-gear::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid var(--color-secondary);
+  }
+  
+  .icon-code {
+    left: 15px;
+    top: 55px;
+    animation: appear 1s ease 1.5s forwards, float-code 3s infinite ease-in-out 1.5s;
+  }
+  
+  .icon-gear {
+    right: 15px; 
+    top: 35px;
+    animation: appear 1s ease 1.5s forwards, float-gear 3s infinite ease-in-out 1.5s;
+  }
+  
+  /* Animação específica para o SVG dentro do icon-gear */
+  .icon-gear svg {
+    animation: rotate-gear 8s linear infinite 1.5s;
+  }
+  
+  /* Animação para fazer os ícones aparecerem */
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Animação para o ícone de código */
+  @keyframes float-code {
+  
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+  
+    50% {
+      transform: translateY(-15px) rotate(5deg);
+    }
+  }
+  
+  /* Animação para o ícone de engrenagem */
+  @keyframes float-gear {
+  
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+  
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  
+  @keyframes rotate-gear {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .Caneca {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -210px;
+    left: 50%;
+    transform: translate(-90%, 420%);
+    z-index: 3;
+  }
+  
+  .Caneca img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 10px var(--shadow-secondary));
+    transition: transform 0.3s ease;
+  }
+  
+  .Caneca:hover img {
+    transform: rotate(10deg);
+  }
+  
+  .prateleira {
+    position: absolute;
+    width: 320px;
+    height: 22px;
+    top: -100px;
+    left: 50%;
+    transform: translate(-120%, 0);
+    z-index: 1;
+  }
+  
+  .tampoPrateleira {
+    width: 100%;
+    height: 10px;
+    background: var(--gradient-wood);
+    border-radius: 4px;
+    box-shadow: 0px 2px 6px var(--shadow-deep);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .sombraPrateleira {
+    position: absolute;
+    width: 300px;
+    height: 10px;
+    background: var(--shadow-primary);
+    border-radius: 50%;
+    bottom: -15px;
+    left: 10px;
+    filter: blur(4px);
+  }
+  
+  .Livros {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: -210px;
+    left: 50%;
+    transform: translate(-120%, -34%);
+    z-index: 3;
+  }
+  
+  .Livros img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 10px var(--shadow-secondary));
+  }
+  
+  .Vaso {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: -210px;
+    left: 50%;
+    transform: translate(-220%, -51%);
+    z-index: 3;
+  }
+  
+  .Vaso img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 10px var(--shadow-secondary));
+  }
+  
+  .mesa {
+    position: absolute;
+    width: 380px;
+    height: 160px;
+    bottom: -150px;
+    left: 50%;
+    transform: translate(-105px, 52px);
+    z-index: 1;
+  }
+  
+  .tampo {
+    width: 100%;
+    height: 15px;
+    background: var(--gradient-wood);
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px var(--shadow-deep);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .sombra {
+    position: absolute;
+    width: 350px;
+    height: 30px;
+    background: var(--shadow-primary);
+    border-radius: 50%;
+    bottom: -120px;
+    left: 10px;
+    filter: blur(8px);
+    transform: translate(10px, -220px);
+  }
+  
+  .lamp-container {
+    position: absolute;
+    top: -180px;
+    left: 250px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .wire {
+    position: absolute;
+    width: 5px;
+    height: 120px;
+    background: var(--gradient-lamp-wire);
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .lamp {
+    width: 110px;
+    height: 70px;
+    background: var(--gradient-lamp);
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 15px 25px var(--shadow-deeper);
+    z-index: 2;
+  }
+  
+  .lamp::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background: var(--lamp-highlight);
+    top: 15px;
+    left: 20px;
+    border-radius: 50%;
+  }
+  .lamp::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 12px;
+    background: var(--gradient-lamp-base);
+    bottom: 0;
+    border-radius: 10px;
+    z-index: 2;
+  }
+  
+  .light {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: radial-gradient(circle, var(--light-bulb-light), var(--light-bulb-dark));
+    border-radius: 50%;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 10px 40px 25px var(--light-glow);
+    z-index: 1;
+    /* Não definimos animação aqui para evitar conflitos */
+  }
+  
+  .light-beam {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(ellipse at center, var(--light-beam-center) 10%, var(--light-beam-edge) 70%, var(--light-beam-fade) 100%);
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    clip-path: polygon(50% 0%, 5% 100%, 95% 100%);
+    filter: blur(12px);
+    opacity: 0.8;
+    z-index: 0;
+  }
+  
+  /* Regras específicas para o modo escuro (dark mode) */
+  .dark-mode .light {
+    animation: lightFlicker 1.5s ease-in-out 1, glow 2s ease-in-out 1.5s;
+  }
+  
+  .dark-mode .light-beam {
+    animation: beamFadeIn 2s ease-in-out 1 forwards;
+  }
+  
+  /* Regras específicas para o modo claro (não dark mode) */
+  body:not(.dark-mode) .light {
+    box-shadow: none;
+    opacity: 0.3;
+    animation: none;
+  }
+  
+  body:not(.dark-mode) .light-beam {
+    opacity: 0;
+    display: none;
+  }
+  
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0px 10px 40px 25px var(--light-glow);
+    }
+    50% {
+      box-shadow: 0px 10px 50px 30px var(--light-glow-strong);
+    }
+  }
+  
+  .texto-container {
+    flex: 1.2;
+    max-width: 600px;
+    padding: 30px;
+    position: relative;
+    z-index: 4;
+    background: var(--color-background-transparent);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px var(--shadow-primary);
+    border-left: 3px solid var(--color-primary);
+    order: 2;
+    transform: translate(100px, -90px);
+  }
+  
+  .HeroTexto h1 {
+    color: var(--color-text-primary);
+    font-family: Orbitron, sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-align: left;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  .HeroTexto h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-primary);
+  }
+  
+  .paragrafos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .HeroTexto p {
+    color: var(--color-text-secondary);
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 22px;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .HeroTexto p:hover {
+    color: var(--color-text-primary);
+  }
+  
+  .HeroTexto span {
+    color: var(--color-primary);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* ======= SEÇÃO SERVIÇOS ======= */
+  .Servicos {
+    display: flex;
+    max-width: 1440px;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translateY(-175px);
+  }
+  
+  /* Animação para a seção de Serviços */
+  .servicos-hidden {
+    opacity: 0;
+  }
+  
+  .servicos-item {
+    opacity: 0;
+    transform: translateY(250px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+  }
+  
+  .animate-servicos .servicos-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Adiciona um pequeno atraso para cada item, criando um efeito em cascata */
+  .animate-servicos h3 {
+    transition-delay: 0.2s;
+  }
+  
+  .animate-servicos .Freelancer {
+    transition-delay: 0.6s;
+  }
+  
+  .animate-servicos .Estagio {
+    transition-delay: 1s;
+  }
+  
+  /* Ajuste para garantir que a seção seja visível após a animação */
+  .animate-servicos {
+    opacity: 1;
+    transition: opacity 1.5s ease;
+  }
+  
+  .Servicos h3 {
+    color: var(--color-text-secondary);
+    font-family: "DM Mono";
+    font-size: 39px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 100px;
+  }
+  
+  /* Estilização dos textos da seção Serviços, seguindo o padrão da seção Skills */
+  .Freelancer, .Estagio {
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    align-self: stretch;
+    background: var(--color-background-transparent);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px var(--shadow-primary);
+    border-left: 3px solid var(--color-primary);
+    margin: 0 20px;
+  }
+  
+  .Freelancer h2, .Estagio h2 {
+    color: var(--color-text-primary);
+    font-family: Orbitron, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+    position: relative;
+    padding-bottom: 15px;
+    -webkit-text-stroke-width: 0;
+    -webkit-text-stroke-color: transparent;
+  }
+  
+  .Freelancer h2::after, .Estagio h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-primary);
+  }
+  
+  .Freelancer p, .Estagio p {
+    color: var(--color-text-secondary);
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 22px;
+    line-height: 1.6;
+    text-align: left;
+    transition: color 0.3s ease;
+    border: none;
+    padding: 0;
+  }
+  
+  .Skills {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    transform: translateY(-300px);
+  }
+  
+  .Skills h3 {
+    margin-bottom: 40px;
+  }
+  
+  .skills-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 75px;
+  }
+  
+  .skill-box {
+    flex: 1;
+    transition: transform 0.3s ease;
+  }
+  
+  .skill-box:hover {
+    transform: translateY(-10px);
+  }
+  
+  .skill-box h2 {
+    margin-bottom: 2ch;
+  }
+  
+  .skill-box p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  .Hard {
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    align-self: stretch;
+    background: var(--color-background-transparent);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px var(--shadow-primary);
+    border-left: 3px solid var(--color-primary);
+  }
+  
+  .Hard h2 {
+    color: var(--color-text-primary);
+    font-family: Orbitron, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  .Hard h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-primary);
+  }
+  
+  .Hard p {
+    color: var(--color-text-secondary);
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 22px;
+    line-height: 1.6;
+    text-align: left;
+    transition: color 0.3s ease;
+    border: none;
+    padding: 0;
+  }
+  
+  .Soft {
+    display: flex;
+    padding: 0px 24px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: px;
+    flex: 1 0 0;
+    align-self: stretch;
+  }
+  
+  .Soft {
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    flex: 1 0 0;
+    align-self: stretch;
+    background: var(--color-background-transparent);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px var(--shadow-primary);
+    border-left: 3px solid var(--color-primary);
+  }
+  
+  .Soft h2 {
+    color: var(--color-text-primary);
+    font-family: Orbitron, sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  .Soft h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-primary);
+  }
+  
+  .Soft p {
+    color: var(--color-text-secondary);
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 22px;
+    line-height: 1.6;
+    text-align: left;
+    transition: color 0.3s ease;
+    border: none;
+    padding: 0;
+  }
+  
+  /* Estilo para a seção de tecnologias */
+  .Tecnologias {
+    display: flex;
+    width: 100%;
+    max-width: 1920px;
+    padding: 0px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 150px;
+    transform: translateY(-300px);
+  }
+  
+  .Tecnologias h3 {
+    color: var(--color-text-primary);
+    font-family: "DM Mono";
+    font-size: 39px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 60px;
+  }
+  .Tecnologias h5 {
+    display: none;
+  }
+  
+  .Container-Tec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+  }
+  
+  .Nome-Tec {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .Nome-Tec span {
+    color: var(--color-text-primary);
+    font-family: Orbitron;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+  }
+  
+  .Icon-Tec {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Alterado de 5 para 6 colunas */
+    width: 100%;
+    gap: 20px;
+  }
+  
+  .Icon-Tec div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: var(--color-secondary);
+  }
+  
+  .tech-button {
+    background: none;
+    border: none;
+    color: var(--color-secondary);
+    font-size: 100px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tech-button:hover {
+    color: var(--color-primary);
+    transform: scale(1.1);
+  }
+  
+  .tech-button.active {
+    color: var(--color-primary);
+    transform: scale(1.1);
+  }
+  
+  .tech-experience-box {
+    margin-top: 40px;
+    padding: 20px;
+    border: 3px solid var(--color-primary);
+    border-radius: 17px;
+    background-color: var(--color-primary-transparent);
+    width: 100%;
+    max-width: 800px;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  .tech-experience-box p {
+    color: var(--color-text-primary);
+    font-family: "Nunito Sans";
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInOpacity {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Estilos para a seção de Projetos */
+  .Projetos {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 0;
+    gap: 60px;
+    transform: translateY(-300px);
+  }
+  
+  .projetos-titulo {
+    color: var(--color-text-primary);
+    font-family: "DM Mono";
+    font-size: 39px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 40px;
+  }
+  
+  .projetos-intro {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+    color: var(--color-text-primary);
+    font-family: "Nunito Sans";
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  
+  .projetos-container {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--espaamento-laptop, 1440px);
+    align-items: center;
+    gap: 80px;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .projeto-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px; /* Aumentado de 40px para 60px para dar mais espaço entre imagem e texto */
+    width: 100%;
+    max-width: 1300px; /* Aumentado de 1200px para 1300px */
+    padding: 20px;
+  }
+  
+  
+  .projeto-imagem {
+    width: 500px;
+    height: 260px;
+    background: #D9D9D9;
+    object-fit: contain; /* Alterado de 'cover' para 'contain' */
+    flex-shrink: 0;
+    transform: translateX(-50px);
+    display: flex; /* Adicionado para centralizar a imagem */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+  }
+  
+  /* Adicione esta regra para garantir que a imagem dentro do contêiner se ajuste corretamente */
+  .projeto-imagem img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .projeto-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    max-width: 750px; /* Aumentado ainda mais para garantir espaço suficiente */
+  }
+  
+  .projeto-card h2 {
+    color: var(--color-text-primary);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-accent);
+    font-family: Orbitron;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+  }
+  
+  .projeto-card p {
+    color: var(--color-text-primary);
+    font-family: "Nunito Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 100%; /* Garante que o parágrafo use toda a largura disponível */
+    max-width: 700px; /* Aumenta o tamanho máximo que o texto pode ocupar */
+    box-sizing: border-box; /* Garante que padding não afete a largura */
+  }
+  
+  .projeto-tecnologias {
+    margin: 15px 0;
+  }
+  
+  .projeto-tecnologias h4 {
+    color: var(--color-text-primary);
+    font-family: Orbitron;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .projeto-tecnologias ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .projeto-tecnologias li {
+    background-color: var(--color-primary-transparent-medium);
+    color: var(--color-text-primary);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-family: "Nunito Sans";
+    border: 1px solid var(--color-primary);
+  }
+  
+  .projeto-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .projeto-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    padding: 8px 15px;
+    border-radius: 15px;
+    background-color: var(--color-secondary-transparent-medium);
+    border: 1px solid var(--color-secondary);
+    transition: all 0.3s ease;
+    font-family: "Nunito Sans";
+    font-size: 18px;
+  }
+  
+  .projeto-link:hover {
+    background-color: var(--color-primary-transparent-high);
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+  }
+  
+  .projeto-link svg {
+    font-size: 20px;
+  }
+  
+  .Contato {
+    display: flex;
+    padding: 104px 100px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+    margin-top: 100px;
+    transform: translateY(-250px);
+  }
+  
+  .Contato h3 {
+    color: var(--color-text-primary);
+    font-family: Orbitron;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    margin-bottom: 300px;
+  }
+  
+  .contato-text {
+    display: none;
+    margin-left: 10px;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 18px;
+    color: var(--color-text-primary);
+  }
+  
+  /* Ajuste o estilo dos itens de contato para acomodar o texto */
+  .contato-item a, 
+  .contato-item .email-copy-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .Icons-Contato {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    flex: 1 0 0;
+    align-self: stretch;
+    list-style: none;
+  }
+  
+  .Icons-Contato li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    color: var(--color-secondary);
+  }
+  
+  .Icons-Contato li a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Icons-Contato li a:hover {
+    color: var(--color-primary);
+    transform: scale(1.1);
+  }
+  
+  .email-copy-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-secondary);
+    font-size: inherit;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .email-copy-button:hover {
+    color: var(--color-primary);
+    transform: scale(1.1);
+  }
+  
+  .tooltip {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    white-space: nowrap;
+    font-family: "Nunito Sans", sans-serif;
+    animation: fadeInOpacity 0.3s, fadeOut 0.3s 1.7s;
+  }
+  
+  /* Animações para o tooltip */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .cv-download-link {
+    color: #D938F2;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cv-download-link:hover {
+    color: var(--color-primary);
+    transform: scale(1.1);
+  }
+  
+  .Footer {
+    margin: solid 5px var(--color-accent);
+    display: flex;
+    padding: 104px 100px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+  }
+  
+  .Footer p {
+    color: var(--color-text-primary);
+    font-family: Orbitron;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transform: translateY(-100px);
+  }
+  
+  /* Por padrão, esconda os nomes mobile na versão desktop */
+  .tech-name-mobile {
+    display: none;
+  }
+  
+  @media screen and (max-width: 1400px) {
+    .Computador {
+      transform: translate(40%, -39%);
+    }
+    
+    .lamp-container {
+      left: 200px;
+    }
+  }
+  
+  /* Media query para telas de até 1100px */
+  @media screen and (max-width: 1100px) {
+    /* Esconder prateleira, livros e vaso */
+    .prateleira,
+    .Livros,
+    .lamp-container,
+    .Vaso {
+      display: none;
+    }
+    
+    /* Ajustar posição do computador para a esquerda */
+    .Computador {
+      transform: translate(-53px, -39%);
+    }
+    
+    /* Ajustar posição da caneca (xícara) */
+    .Caneca {
+      transform: translate(-240px, 420%);
+    }
+    
+    /* Ajustar posição da mesa */
+    .mesa {
+      transform: translate(-255px, 52px);
+    }
+    
+    /* Ajustar posição dos ícones flutuantes */
+    .floating-icons {
+      left: 30%;
+      transform: translateX(0px);
+    }
+  
+    
+    /* Ajustar o container de imagens para manter proporção */
+    .imagens-container {
+      transform: translateX(0px);
+    }
+    
+    /* Ajustar o texto para ocupar mais espaço */
+    .texto-container {
+      transform: translate(0, -90px);
+      max-width: 550px;
+    }
+  
+    .Skills {
+      transform: translateY(-200px);
+      margin-top: 100px;
+    }
+    
+    .Servicos {
+      margin-bottom: 100px;
+    }
+  
+    .Projetos {
+      transform: translateY(-200px);
+    }
+    
+    .projeto-card {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    
+    .projeto-imagem {
+      transform: translateX(0);
+      width: 100%;
+      max-width: 450px;
+    }
+    
+    .projeto-texto {
+      max-width: 100%;
+    }
+    
+    .projeto-card h2 {
+      text-align: center;
+    }
+    
+    .projeto-tecnologias {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .projeto-links {
+      justify-content: center;
+    }
+  
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .Skills{
+      transform: translateY(-100px);
+    }
+    .Servicos {
+      transform: translateY(-100px);
+      margin-top: 150px;
+    }
+    
+    .lamp-container {
+      display: none;
+    }
+    
+    .Hero {
+      margin-bottom: 150px;
+    }
+    .Tecnologias {
+      transform: translateY(-200px);
+      padding: 0 20px;
+    }
+    
+    .Nome-Tec {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    
+    .Icon-Tec {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    
+    .Nome-Tec span {
+      font-size: 20px;
+    }
+    
+    .Icon-Tec div {
+      font-size: 80px;
+    }
+    
+    .tech-button {
+      font-size: 80px;
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+  
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      bottom: 20px;
+      right: 20px;
+    }
+  
+  
+    /* Ajustes gerais */
+    .content {
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  
+    section:not(:first-child) {
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+  
+    /* Header e Navbar */
+    .Header {
+      padding: 0 20px;
+    }
+  
+    .Navbar {
+      display: none;
+      /* Esconde a navbar normal */
+    }
+  
+    .Logo {
+      height: 105px; /* 70% do tamanho original de 150px */
+    }
+  
+    /* Adicione este elemento no seu HTML para o ícone de menu */
+    .mobile-menu-icon {
+      display: block;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+  
+    /* Hero Section */
+    .Hero {
+      padding: 1rem 0;
+      margin-top: 100px;
+      transform: translateY(120px);
+    }
+  
+    .Container-hero {
+      max-width: 100%;
+    }
+  
+    .hero-content-wrapper {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .hero-left {
+      display: none;
+      /* Remove as imagens na versão mobile */
+    }
+  
+    .hero-right {
+      justify-content: center;
+      width: 100%;
+    }
+  
+  
+      .texto-container {
+      max-width: 100%;
+      padding: 20px;
+      order: 1;
+    }
+  
+    .hero-left,
+    .lamp-container,
+    .Monitor,
+    .Prateleira,
+    .mesa,
+    .imagens-container {
+      display: none;
+      /* Remove todas as imagens e a luminária na versão mobile */
+    }
+  
+    .HeroTexto h1 {
+      font-size: 32px;
+      text-align: center;
+    }
+  
+    .HeroTexto h1::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .HeroTexto p {
+      font-size: 18px;
+      text-align: center;
+    }
+  
+    /* Seção Serviços */
+    .Servicos {
+      height: auto;
+      transform: translateY(0);
+      padding: 40px 0;
+    }
+  
+    .Servicos h3 {
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+    .Tecnologias h5 {
+      display: block;
+      color: var(--color-primary);
+      font-family: "Nunito Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 25px;
+      font-style: italic;
+      text-align: center;
+    }
+  
+    .Freelancer h2,
+    .Estagio h2 {
+      font-size: 26px;
+    }
+  
+    /* Seção Skills */
+    .Skills {
+      transform: translateY(0);
+      padding: 40px 0;
+    }
+  
+    .skills-container {
+      flex-direction: column;
+      gap: 30px;
+    }
+  
+    .skill-box {
+      width: 100%;
+    }
+  
+    .Hard,
+    .Soft {
+      padding: 20px;
+    }
+  
+    .Hard h2,
+    .Soft h2 {
+      font-size: 26px;
+      text-align: center;
+    }
+  
+    .Hard h2::after,
+    .Soft h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .Hard p,
+    .Soft p {
+      font-size: 18px;
+      text-align: center;
+    }
+  
+    /* Seção Tecnologias */
+    .Tecnologias {
+      transform: translateY(0);
+      padding: 40px 0;
+    }
+  
+    .Tecnologias h3 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+  
+    /* Mostrar e estilizar a instrução mobile */
+    .mobile-instruction {
+      display: block;
+      color: var(--color-primary);
+      font-family: "Nunito Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 25px;
+      font-style: italic;
+      text-align: center;
+    }
+  
+    /* Reorganizar o container de tecnologias */
+    .Container-Tec {
+      width: 100%;
+      padding: 0 20px;
+    }
+  
+    /* Esconder a grade de nomes original */
+    .Nome-Tec {
+      display: none;
+    }
+  
+    /* Transformar a grade de ícones em uma lista */
+    .Icon-Tec {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+    }
+  
+    /* Estilo para cada item da tecnologia */
+    .Icon-Tec div {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+  
+    /* Estilo para o botão de tecnologia */
+    .tech-button {
+      font-size: 40px;
+      margin-right: 10px;
+    }
+  
+    /* Mostrar os nomes das tecnologias na versão mobile */
+    .tech-name-mobile {
+      display: block;
+      color: var(--color-text-primary);
+      font-family: Orbitron, sans-serif;
+      font-size: 18px;
+    }
+  
+    /* Remover o pseudo-elemento ::after que não está funcionando */
+    .Icon-Tec div::after {
+      content: none;
+    }
+  
+    .tech-experience-box {
+      margin-top: 30px;
+      padding: 15px;
+    }
+  
+    .tech-experience-box p {
+      font-size: 16px;
+    }
+  
+    /* Seção Projetos */
+    .Projetos {
+      transform: translateY(0);
+      padding: 40px 0;
+    }
+  
+    .projetos-titulo {
+      font-size: 28px;
+    }
+  
+    .projetos-intro {
+      font-size: 16px;
+    }
+  
+    .projetos-container {
+      gap: 50px;
+    }
+  
+    .projeto-card {
+      flex-direction: column-reverse;
+      /* Texto acima, imagem abaixo */
+      gap: 20px;
+      padding: 15px;
+    }
+  
+    .projeto-imagem {
+      width: 100%;
+      height: auto;
+      max-width: 300px;
+      max-height: 300px;
+    }
+  
+    .projeto-texto {
+      max-width: 100%;
+      gap: 15px;
+    }
+  
+    .projeto-card h2 {
+      font-size: 24px;
+      text-align: center;
+    }
+  
+    .projeto-card p {
+      font-size: 18px;
+      text-align: center;
+    }
+  
+    .projeto-tecnologias h4 {
+      text-align: center;
+    }
+  
+    .projeto-tecnologias ul {
+      justify-content: center;
+    }
+  
+    .projeto-links {
+      justify-content: center;
+    }
+  
+    /* Seção Contato */
+    .Contato {
+      padding: 40px 20px;
+      transform: translateY(0);
+      flex-direction: column;
+    }
+  
+    .Contato h3 {
+      position: relative;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+  
+    .Icons-Contato {
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+  
+    .Icons-Contato li {
+      font-size: 50px;
+    }
+  
+    /* Footer */
+    .Footer {
+      padding: 40px 20px;
+    }
+  
+    .Footer p {
+      font-size: 16px;
+      transform: translateY(0);
+      text-align: center;
+    }
+  }
+  
+  /* Para telas ainda menores - ajustes adicionais */
+  @media screen and (max-width: 500px) {
+  
+    .theme-toggle {
+      width: 35px;
+      height: 35px;
+      font-size: 18px;
+      bottom: 15px;
+      right: 15px;
+    }
+  
+    .Logo {
+      height: 65px; /* 30% do tamanho original de 150px */
+    }
+    
+    .HeroTexto h1 {
+      font-size: 28px;
+    }
+  
+    .HeroTexto p {
+      font-size: 16px;
+    }
+  
+    .Servicos h3{
+      font-size: 24px;
+    }
+  
+    .Skills h3{
+      font-size: 24px;
+    }
+  
+    .Nome-Tec,
+    .Icon-Tec {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+  
+    .Projetos p{
+      font-size: 16px;
+    }
+  
+    .Icons-Contato {
+      flex-direction: column;
+      width: 100%;
+      gap: 15px;
+    }
+    
+    /* Estilizar cada item de contato como uma caixa */
+    .contato-item {
+      width: 100%;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 0;
+    }
+    
+    /* Ajustar o tamanho dos ícones */
+    .Icons-Contato li {
+      font-size: 30px;
+    }
+    
+    /* Mostrar o texto descritivo */
+    .contato-text {
+      display: block;
+    }
+    
+    /* Ajustar os links e botões para alinhar à esquerda */
+    .contato-item a, 
+    .contato-item .email-copy-button {
+      justify-content: flex-start;
+    }
+    
+    /* Ajustar a posição do tooltip */
+    .tooltip {
+      bottom: -30px;
+      left: 50%;
+    }
+  }
+  
+  

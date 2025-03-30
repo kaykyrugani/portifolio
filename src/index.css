@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+p {
+  color: #ffffff;
+  font-family: "Nunito Sans";
+  font-size: 31px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+h3 {
+  color: #ffffff;
+  font-family: "DM Mono";
+  font-size: 39px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+h2 {
+  color: #ffffff;
+  font-family: "Orbitron";
+  font-size: 39px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+body {
+  background-color: #0C090D;
+  width: 100vw;
+  min-height: 100vh;
+}
