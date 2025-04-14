@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt } from 'react-icons/fa';
+import CurriculoPDF from '../../assets/pdf/Curriculo.pdf';
 
 function Contato() {
     const [copySuccess, setCopySuccess] = useState(false);
@@ -46,8 +47,9 @@ function Contato() {
                 </li>
                 <li className="contato-item">
                     <a 
-                        href="/seu-curriculo.pdf" 
-                        download="Seu_Nome_Curriculo.pdf"
+                        href={CurriculoPDF}
+                        target="_blank" 
+                        download="Kayky_Curriculo.pdf"
                         className="cv-download-link"
                         aria-label="Baixar currículo"
                     >

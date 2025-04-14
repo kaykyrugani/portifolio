@@ -2,7 +2,7 @@ import React from 'react';
 import ProjetoCard from './Projeto.card'; 
 import RefrisImg from '../../assets/imgs/TesteRefri.png';
 import TestePortifolioImg from '../../assets/imgs/TestePortifolio.png';
-import Emprogresso from '../../assets/imgs/Emprogresso.png';
+import Onlywave from '../../assets/imgs/OnlyWave.png'
 
 // Array de dados dos projetos - facilita a manutenção e adição de novos projetos
 // Cada objeto representa um projeto com suas informações específicas
@@ -27,12 +27,12 @@ const projetosData = [
   },
   {
     id: 3,
-    titulo: "Em progresso",
-    descricao: "Ainda em desenvolvimento...",
-    imagem: Emprogresso,
-    //githubLink: "https://github.com/seuusuario/projeto3",
-    //demoLink: "https://demo-projeto1.com",
-    tecnologias: ["React Native", "Java Script", "Php", "Node.js"]
+    titulo: "OnlyWave (Em progresso)",
+    descricao: "O OnlyWave é um projeto em desenvolvimento que visa criar uma plataforma de marcketplace para a venda de produtos de moda. Sendo meu primeiro projeto fullstack.",
+    imagem: Onlywave,
+    githubLink: "https://github.com/kaykyrugani/onlywavestore",
+    demoLink: "onlywavestore-ptk2.vercel.app",
+    tecnologias: ["ViteReact", "Java Script", "TypeScript", "Node.js","PostgreSQL", "Prisma"],
   }
 ];
 

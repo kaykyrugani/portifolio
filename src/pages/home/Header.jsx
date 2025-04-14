@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LogoKK from '../../assets/imgs/LogoKK.png';
+import LogoKK from '../../assets/imgs/logoKK.png';
 import { FaBars, FaTimes } from "react-icons/fa";
 
 function Header() {
