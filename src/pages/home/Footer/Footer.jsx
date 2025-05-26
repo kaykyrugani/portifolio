@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaArrowUp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope, FaArrowUp, FaPhone, FaMapMarkerAlt, FaCode } from 'react-icons/fa';
+import { SiGmail } from 'react-icons/si';
 import './Footer.css';
 
 const Footer = () => {
@@ -42,9 +43,13 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-section">
-          <h3>Kayky Rugani</h3>
-          <p>Desenvolvedor Full Stack & Designer</p>
+        <div className="footer-section about">
+          <div className="logo">
+            <FaCode className="logo-icon" />
+            <h3>Kayky Rugani</h3>
+          </div>
+          <p className="tagline">Desenvolvedor Full Stack & Designer</p>
+          <p className="description">Transformando ideias em realidade através de códigos criativos e soluções inovadoras.</p>
           <div className="footer-social">
             <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <FaGithub className="social-icon" />
@@ -56,25 +61,23 @@ const Footer = () => {
               <FaInstagram className="social-icon" />
             </a>
             <a href="mailto:seu-email@exemplo.com" aria-label="Email">
-              <FaEnvelope className="social-icon" />
+              <SiGmail className="social-icon" />
             </a>
           </div>
         </div>
 
-        <div className="footer-section">
-          <h3>Links Rápidos</h3>
-          <ul>
-            <li><a href="#home">Início</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#projetos">Projetos</a></li>
-            <li><a href="#contato">Contato</a></li>
-          </ul>
-        </div>
-
-        <div className="footer-section">
-          <h3>Entre em Contato</h3>
-          <p>Email: seu-email@exemplo.com</p>
-          <p>Telefone: (00) 00000-0000</p>
+        <div className="footer-section contact">
+          <h3>Contato</h3>
+          <div className="contact-info">
+            <div className="contact-item">
+              <FaEnvelope className="contact-icon" />
+              <span>seu-email@exemplo.com</span>
+            </div>
+            <div className="contact-item">
+              <FaPhone className="contact-icon" />
+              <span>(00) 00000-0000</span>
+            </div>
+          </div>
         </div>
       </div>
 
