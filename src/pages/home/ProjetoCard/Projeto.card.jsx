@@ -7,8 +7,10 @@ function ProjetoCard({ titulo, descricao, imagem, githubLink, demoLink, tecnolog
   return (
     // Container principal do card
     <div className="projeto-card">
-      {/* Imagem do projeto com texto alternativo para acessibilidade */}
-      <img src={imagem} alt={titulo} className="projeto-imagem" />
+      {/* Container da imagem com efeito de máscara */}
+      <div className="projeto-imagem-container">
+        <img src={imagem} alt={titulo} className="projeto-imagem" />
+      </div>
       
       {/* Container para o conteúdo textual do card */}
       <div className="projeto-texto">

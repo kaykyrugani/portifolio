@@ -1,0 +1,38 @@
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Ajustes para o modo claro */
+body:not(.dark-mode) .animated-background {
+  opacity: 0.3;
+}
+
+/* Efeito de brilho sutil */
+.animated-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(1, 186, 239, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+/* Melhorias de desempenho */
+@media (prefers-reduced-motion: reduce) {
+  .animated-background {
+    animation: none;
+  }
+}

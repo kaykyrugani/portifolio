@@ -1,0 +1,177 @@
+/* ======= SEÇÃO SERVIÇOS ======= */
+.Servicos {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 20px;
+  opacity: 1;
+  transition: opacity 1.5s ease;
+}
+
+/* Classe para animação inicial */
+.servicos-hidden {
+  opacity: 0;
+}
+
+/* Estilo base para itens de serviço */
+.servicos-item {
+  opacity: 0;
+  transform: translateY(250px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+/* Classe ativada quando a seção está visível */
+.animate-servicos .servicos-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Atrasos para animação em cascata */
+.animate-servicos h3 {
+  transition-delay: 0.2s;
+}
+
+.animate-servicos .Freelancer {
+  transition-delay: 0.6s;
+}
+
+.animate-servicos .Estagio {
+  transition-delay: 1s;
+}
+
+/* Estilo do título principal */
+.Servicos h3 {
+  color: var(--color-text-secondary);
+  font-family: "DM Mono";
+  font-size: 39px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+/* Container dos serviços */
+.servico-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilo base para os cards de serviço */
+.Freelancer, 
+.Estagio {
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--color-background-transparent);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px var(--shadow-primary);
+  border-left: 3px solid var(--color-primary);
+  margin: 0 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de hover nos cards */
+.Freelancer:hover,
+.Estagio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px var(--shadow-deep);
+}
+
+/* Estilo dos títulos dos serviços */
+.Freelancer h2, 
+.Estagio h2 {
+  color: var(--color-text-primary);
+  font-family: Orbitron, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  position: relative;
+  padding-bottom: 15px;
+  -webkit-text-stroke-width: 0;
+  -webkit-text-stroke-color: transparent;
+}
+
+/* Linha decorativa abaixo dos títulos */
+.Freelancer h2::after, 
+.Estagio h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: var(--gradient-primary);
+}
+
+/* Estilo do texto dos serviços */
+.Freelancer p, 
+.Estagio p {
+  color: var(--color-text-secondary);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 22px;
+  line-height: 1.6;
+  text-align: left;
+  transition: color 0.3s ease;
+  border: none;
+  padding: 0;
+}
+
+/* Estilo para telas médias */
+@media screen and (max-width: 768px) {
+  .Servicos h3 {
+    font-size: 32px;
+    margin-bottom: 60px;
+  }
+  
+  .Freelancer,
+  .Estagio {
+    padding: 25px;
+    margin: 0 10px;
+  }
+  
+  .Freelancer h2,
+  .Estagio h2 {
+    font-size: 28px;
+  }
+  
+  .Freelancer p,
+  .Estagio p {
+    font-size: 18px;
+  }
+}
+
+/* Estilo para telas pequenas */
+@media screen and (max-width: 480px) {
+  .Servicos h3 {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+  
+  .servico-container {
+    gap: 30px;
+  }
+  
+  .Freelancer,
+  .Estagio {
+    padding: 20px;
+    margin: 0 5px;
+  }
+  
+  .Freelancer h2,
+  .Estagio h2 {
+    font-size: 24px;
+  }
+  
+  .Freelancer p,
+  .Estagio p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}

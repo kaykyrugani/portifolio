@@ -1,0 +1,939 @@
+/* ======= SEÇÃO PROJETOS ======= */
+.Projetos {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 180px 20px 100px;
+  background-color: var(--color-background);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) perspective(1000px) rotateX(0) rotateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateZ(0);
+  }
+  50% {
+    transform: translateY(-8px) translateZ(0);
+  }
+}
+
+/* Aplicar a animação de flutuação apenas quando o mouse estiver sobre o container */
+.projetos-container:hover .projeto-card:not(:hover) {
+  animation: float 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Suavizar a transição quando o mouse sai do card */
+.projeto-card {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Animações para os cards */
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(-10deg) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0) translateY(0);
+  }
+}
+
+/* Classe para animação quando o card estiver visível */
+.projeto-card.visible {
+  animation: flipIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: calc(var(--delay, 0) * 0.1s);
+}
+
+/* Efeito de flutuação sutil */
+@keyframes float {
+  0% {
+    transform: translateY(0) perspective(1000px) rotateX(0) rotateY(0);
+  }
+  50% {
+    transform: translateY(-10px) perspective(1000px) rotateX(1deg) rotateY(1deg);
+  }
+  100% {
+    transform: translateY(0) perspective(1000px) rotateX(0) rotateY(0);
+  }
+}
+
+/* Aplicar animação de flutuação apenas quando o card estiver visível e em hover */
+.projeto-card.visible:not(:hover) {
+  animation: float 6s ease-in-out infinite, flipIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: calc(var(--delay, 0) * 0.1s), 0s;
+}
+
+/* Ajustar o atraso para cada card */
+.projeto-card:nth-child(1) { --delay: 1; }
+.projeto-card:nth-child(2) { --delay: 2; }
+.projeto-card:nth-child(3) { --delay: 3; }
+.projeto-card:nth-child(4) { --delay: 4; }
+
+.Projetos::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(1, 186, 239, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 30%, rgba(157, 0, 255, 0.1) 0%, transparent 25%),
+    radial-gradient(circle at 30% 70%, rgba(1, 239, 186, 0.08) 0%, transparent 25%),
+    radial-gradient(circle at 70% 80%, rgba(255, 0, 200, 0.05) 0%, transparent 30%);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.8;
+  animation: gradientMove 25s ease infinite;
+  background-size: 200% 200%;
+  filter: blur(60px);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes gradientText {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Efeito de glitch no título */
+@keyframes glitch {
+  0% {
+    text-shadow: 
+      0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  14% {
+    text-shadow: 
+      0.05em 0 0 rgba(255, 0, 0, 0.75),
+      -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  15% {
+    text-shadow: 
+      -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  49% {
+    text-shadow: 
+      -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+      0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  50% {
+    text-shadow: 
+      0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75),
+      0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  99% {
+    text-shadow: 
+      0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+      0.05em 0 0 rgba(0, 255, 0, 0.75),
+      0 -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+  100% {
+    text-shadow: 
+      -0.025em 0 0 rgba(255, 0, 0, 0.75),
+      -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+      -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+  }
+}
+
+.projetos-titulo {
+  color: var(--color-text-primary);
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  animation: glitch 8s infinite, gradient 8s ease infinite;
+  background-size: 200% 200%;
+}
+
+.projetos-titulo:hover {
+  animation: none;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.projetos-intro {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.projetos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  width: 100%;
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Estilo para os cards de projeto */
+.projeto-card {
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px) perspective(1000px) rotateX(0) rotateY(0);
+  transform-style: preserve-3d;
+  animation: fadeInUp 0.6s ease-out forwards;
+  will-change: transform, box-shadow, filter, background;
+  background: 
+    linear-gradient(
+      135deg, 
+      rgba(255, 255, 255, 0.02) 0%, 
+      rgba(255, 255, 255, 0.05) 100%
+    );
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de borda gradiente ao passar o mouse */
+.projeto-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.projeto-card:hover::after {
+  transform: scaleX(1);
+}
+
+.projeto-card:hover {
+  background: 
+    linear-gradient(
+      135deg, 
+      rgba(255, 255, 255, 0.05) 0%, 
+      rgba(255, 255, 255, 0.1) 100%
+    );
+  transform: translateY(-5px) perspective(1000px) rotateX(1deg) rotateY(1deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projeto-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(
+    45deg,
+    rgba(1, 186, 239, 0.4) 0%,
+    rgba(157, 0, 255, 0.4) 50%,
+    rgba(1, 186, 239, 0.4) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.projeto-card:hover {
+  transform: translateY(-5px) scale(1.01) perspective(1000px) rotateX(1deg) rotateY(1deg);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.05);
+}
+
+/* Efeito de brilho sutil */
+.projeto-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.projeto-card:hover::before {
+  opacity: 1;
+}
+
+.projeto-card:hover::after {
+  opacity: 1;
+  animation: gradientBorder 3s linear infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradientBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.projeto-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  opacity: 0.8;
+  transition: all 0.4s ease;
+}
+
+.projeto-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border-color: rgba(1, 186, 239, 0.3);
+}
+
+.projeto-card:hover::before {
+  opacity: 1;
+  height: 6px;
+}
+
+.projeto-imagem {
+  width: 100%;
+  height: 220px;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+/* Efeito de máscara na imagem */
+.projeto-imagem-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(1, 186, 239, 0.15) 0%,
+    rgba(157, 0, 255, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.projeto-card:hover .projeto-imagem {
+  transform: scale(1.03);
+}
+
+.projeto-card:hover .projeto-imagem-container::before {
+  opacity: 1;
+}
+
+.projeto-texto {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.projeto-card h2 {
+  color: var(--color-text-primary);
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradientText 5s ease infinite;
+}
+
+.projeto-card h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.projeto-card:hover h2::after {
+  width: 80px;
+}
+
+.projeto-card p {
+  color: var(--color-text-secondary);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0 0 20px 0;
+  flex: 1;
+}
+
+/* Estilo para a seção de tecnologias */
+.projeto-tecnologias {
+  margin: 15px 0 25px;
+}
+
+.projeto-tecnologias h4 {
+  color: var(--color-text-primary);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.projeto-tecnologias li {
+  background: rgba(1, 186, 239, 0.1);
+  color: var(--color-primary);
+  border: 1px solid rgba(1, 186, 239, 0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transform: translateZ(0);
+}
+
+.projeto-tecnologias li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 20px;
+}
+
+.projeto-tecnologias li:hover {
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(1, 186, 239, 0.3);
+  border-color: transparent;
+}
+
+.projeto-tecnologias li:hover::before {
+  opacity: 1;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.projeto-tecnologias li:hover {
+  animation: bounce 0.6s ease;
+}
+
+/* Estilo para o botão Ver Mais Projetos */
+.ver-mais-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.ver-mais {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(1, 186, 239, 0.3);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
+  animation: pulseButton 3s infinite;
+}
+
+@keyframes pulseButton {
+  0% {
+    box-shadow: 0 0 0 0 rgba(1, 186, 239, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(1, 186, 239, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(1, 186, 239, 0);
+  }
+}
+
+.ver-mais:hover {
+  animation: none;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(1, 186, 239, 0.5);
+}
+
+.ver-mais:active {
+  transform: translateY(0);
+}
+
+/* Efeito de onda ao clicar */
+.ver-mais::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.ver-mais:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(40, 40);
+    opacity: 0;
+  }
+}
+
+/* Estilo para os links dos projetos */
+.projeto-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.projeto-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 26px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(1, 186, 239, 0.3);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  min-width: 140px;
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
+}
+
+/* Efeito de pulse sutil ao passar o mouse */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(1, 186, 239, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(1, 186, 239, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(1, 186, 239, 0);
+  }
+}
+
+.projeto-link:hover {
+  animation: pulse 1.5s infinite;
+}
+
+/* Efeito de onda ao clicar */
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.projeto-link::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  width: 20px;
+  height: 20px;
+  transform: scale(0);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.projeto-link:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+.projeto-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.projeto-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(1, 186, 239, 0.4);
+  color: white;
+}
+
+.projeto-link:hover::before {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.projeto-link:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(1, 186, 239, 0.5);
+}
+
+.projeto-link svg {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.projeto-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* Estilo para o botão de demo */
+.projeto-link.demo {
+  background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
+  box-shadow: 0 4px 15px rgba(110, 69, 226, 0.3);
+}
+
+.projeto-link.demo::before {
+  background: linear-gradient(135deg, #88d3ce 0%, #6e45e2 100%);
+}
+
+.projeto-link.demo:hover {
+  box-shadow: 0 10px 30px rgba(110, 69, 226, 0.4);
+}
+
+/* Efeito de brilho ao passar o mouse */
+.projeto-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(145deg, rgba(1, 186, 239, 0.2), rgba(157, 0, 255, 0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.projeto-card:hover::after {
+  opacity: 1;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 1200px) {
+  .projetos-titulo {
+    font-size: 3rem;
+  }
+  
+  .projetos-intro {
+    font-size: 1.1rem;
+  }
+  
+  .projetos-container {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+  
+  .projeto-card h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .Projetos {
+    padding: 150px 20px 80px;
+  }
+  
+  .projetos-titulo {
+    font-size: 2.8rem;
+  }
+  
+  .projeto-card h2 {
+    font-size: 1.5rem;
+  }
+  
+  .projeto-card p {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Projetos {
+    padding: 120px 15px 60px;
+  }
+  
+  .projetos-titulo {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .projetos-intro {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  
+  .projetos-container {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    padding: 0 15px;
+  }
+  
+  .projeto-card {
+    max-width: 100%;
+  }
+  
+  .projeto-imagem {
+    height: 200px;
+  }
+  
+  .projeto-texto {
+    padding: 20px;
+  }
+  
+  .projeto-card h2 {
+    font-size: 1.6rem;
+  }
+  
+  .projeto-card p {
+    font-size: 0.95rem;
+  }
+  
+  .projeto-tecnologias li {
+    font-size: 0.8rem;
+    padding: 4px 12px;
+  }
+  
+  .projeto-link {
+    padding: 9px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Projetos {
+    padding: 100px 10px 50px;
+  }
+  
+  .projetos-titulo {
+    font-size: 2.2rem;
+  }
+  
+  .projetos-intro {
+    padding: 0 10px;
+    margin-bottom: 30px;
+  }
+  
+  .projetos-container {
+    padding: 0 10px;
+  }
+  
+  .projeto-imagem {
+    height: 180px;
+  }
+  
+  .projeto-texto {
+    padding: 18px 15px;
+  }
+  
+  .projeto-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  
+  .projeto-card p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .projeto-tecnologias {
+    margin: 10px 0 20px;
+  }
+  
+  .projeto-tecnologias h4 {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+  
+  .projeto-tecnologias li {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+  }
+  
+  .projeto-links {
+    gap: 12px;
+    padding-top: 12px;
+  }
+  
+  .projeto-link {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .projeto-link svg {
+    font-size: 1rem;
+  }
+}
+
+/* Modo escuro é o único modo suportado */

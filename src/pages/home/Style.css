@@ -1,5 +1,32 @@
+/* Garantir que o body ocupe toda a altura da tela */
+html, body, #root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Posicionamento do conteúdo sobre o fundo */
+.content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Garantir que as seções tenham fundo semi-transparente para melhor legibilidade */
+.Hero, .Servicos, .Skills, .Tecnologias, .Projetos, .Contato {
+  background-color: var(--color-background-transparent);
+  backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 2;
+}
+
+/* Modo escuro padrão */
+
 :root {
-    /* Cores principais */
+  /* Cores principais */
     --color-background: #0C090D;
     --color-primary: #01BAEF;
     --color-secondary: #9D00FF;
@@ -38,72 +65,29 @@
     --light-beam-fade: rgba(255, 236, 179, 0);
     --light-bulb-light: #fff7d1;
     --light-bulb-dark: #ffdb7d;
-    --lamp-highlight: rgba(255, 255, 255, 0.3); /* Adicionada a variável que faltava */
+    --lamp-highlight: rgba(255, 255, 255, 0.3);
     
     /* Cores para elementos de interface */
     --border-subtle: rgba(255, 255, 255, 0.1);
-  }
-  
-  /* Variáveis para o modo claro */
-  body:not(.dark-mode) {
-    --color-background: #FFFFFF;
-    --color-primary: #00AEEF;
-    --color-secondary: #8A2BE2;
-    --color-accent: #0066CC;
-    --color-text-primary: #111;
-    --color-text-secondary: #333;
-    
-    /* Cores com transparência para modo claro */
-    --color-background-transparent: rgba(255, 255, 255, 0.7);
-    --color-primary-transparent: rgba(0, 174, 239, 0.1);
-    --color-primary-transparent-medium: rgba(0, 174, 239, 0.2);
-    --color-primary-transparent-high: rgba(0, 174, 239, 0.3);
-    --color-secondary-transparent: rgba(138, 43, 226, 0.2);
-    --color-secondary-transparent-medium: rgba(138, 43, 226, 0.2);
-    --color-secondary-glow: rgba(138, 43, 226, 0.7);
-    --color-primary-glow: rgba(0, 174, 239, 0.6);
-    
-    /* Cores para gradientes no modo claro */
-    --gradient-primary: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-    --gradient-wood: linear-gradient(180deg, #e8c39e, #c68c53);
-    --gradient-lamp: linear-gradient(to bottom, #b8aed8, #9384c2);
-    --gradient-lamp-base: linear-gradient(to bottom, #a093c9, #7c6aad);
-    --gradient-lamp-wire: linear-gradient(to bottom, #c8bce0, #a093c9);
-    
-    /* Cores para sombras no modo claro */
-    --shadow-primary: rgba(0, 0, 0, 0.1);
-    --shadow-secondary: rgba(0, 0, 0, 0.15);
-    --shadow-deep: rgba(0, 0, 0, 0.2);
-    --shadow-deeper: rgba(0, 0, 0, 0.25);
-    
-    /* Cores para efeitos de luz no modo claro */
-    --light-glow: rgba(255, 236, 179, 0.6);
-    --light-glow-strong: rgba(255, 236, 179, 0.8);
-    --light-beam-center: rgba(255, 236, 179, 0.4);
-    --light-beam-edge: rgba(255, 236, 179, 0.1);
-    --light-beam-fade: rgba(255, 236, 179, 0);
-    
-    /* Cores para elementos de interface no modo claro */
-    --border-subtle: rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Animação para a luz piscar quando mudar para o modo escuro */
+}
+
+  /* Animação para a luz piscar */
   @keyframes lightFlicker {
     0%, 100% {
       opacity: 1;
       box-shadow: 0px 10px 40px 25px var(--light-glow);
     }
     20% {
-      opacity: 0.3;
-      box-shadow: 0px 5px 10px 5px var(--light-glow);
+      opacity: 0.7;
+      box-shadow: 0px 8px 30px 20px var(--light-glow);
     }
     40% {
       opacity: 1;
       box-shadow: 0px 10px 40px 25px var(--light-glow);
     }
     60% {
-      opacity: 0.3;
-      box-shadow: 0px 5px 10px 5px var(--light-glow);
+      opacity: 0.8;
+      box-shadow: 0px 9px 35px 23px var(--light-glow);
     }
     80% {
       opacity: 1;
@@ -116,7 +100,7 @@
       opacity: 0;
     }
     70% {
-      opacity: 0;
+      opacity: 0.5;
     }
     100% {
       opacity: 0.8;
@@ -124,71 +108,59 @@
   }
   
   
-  /* Ocultar a luz da luminária no modo claro */
-  body:not(.dark-mode) .light {
-    box-shadow: none; /* Remove o brilho */
-    opacity: 0.3; /* Torna a lâmpada quase transparente */
-    animation: none; /* Remove a animação de brilho */
+  /* Estilos da lâmpada */
+  .light {
+    animation: lightFlicker 3s ease-in-out infinite;
   }
   
-  body:not(.dark-mode) .light-beam {
-    opacity: 0; /* Oculta completamente o feixe de luz */
-    display: none; /* Garante que o elemento não ocupe espaço */
+  .light-beam {
+    opacity: 1;
   }
   
-  /* Corrigir cores do menu mobile e ícones no modo claro */
-  body:not(.dark-mode) .mobile-menu-icon {
-    color: var(--color-text-primary); /* Garante que o ícone do menu seja preto no modo claro */
+  /* Estilos do menu mobile */
+  .mobile-menu-icon {
+    color: var(--color-text-primary);
   }
   
-  body:not(.dark-mode) .mobile-menu {
-    background-color: var(--color-background); /* Fundo branco no modo claro */
+  .mobile-menu {
+    background-color: var(--color-background);
     border-top: 1px solid var(--color-primary);
   }
   
-  body:not(.dark-mode) .mobile-menu a {
-    color: var(--color-text-primary); /* Texto preto no modo claro */
+  .mobile-menu a {
+    color: var(--color-text-primary);
     border-bottom: 1px solid var(--border-subtle);
   }
   
-  /* Estilo para links ativos no menu mobile */
+  .mobile-menu a::before {
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  }
+  
+  /* Menu mobile responsivo */
+  @media (max-width: 768px) {
+    .mobile-menu {
+      background-color: var(--color-background-transparent);
+      backdrop-filter: blur(10px);
+    }
+  }
+  
+  .mobile-menu a:hover,
   .mobile-menu a.active {
-    color: var(--color-primary); /* Usa a cor primária que já muda conforme o modo */
-    font-weight: bold;
-    position: relative;
+    color: var(--color-primary);
   }
   
-  /* Adicionar linha sob o link ativo, similar ao menu desktop */
-  .mobile-menu a.active::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-primary);
+  .mobile-menu a.active {
+    color: var(--color-primary);
   }
   
-  /* Garantir que o hover também funcione corretamente */
-  body:not(.dark-mode) .mobile-menu a:hover,
-  body:not(.dark-mode) .mobile-menu a.active {
-    color: var(--color-primary); /* Usa a cor primária do modo claro */
+  .Projetos p,
+  .projetos-intro,
+  .projeto-card p {
+    color: var(--color-text-primary);
   }
   
-  /* Garantir que a cor ativa seja mantida no modo escuro também */
-  .dark-mode .mobile-menu a.active {
-    color: var(--color-primary); /* Usa a cor primária do modo escuro */
-  }
-  
-  body:not(.dark-mode) .Projetos p,
-  body:not(.dark-mode) .projetos-intro,
-  body:not(.dark-mode) .projeto-card p {
-    color: var(--color-text-primary); /* Usa a variável que já muda conforme o modo */
-  }
-  
-  /* Garantir que as tecnologias nos projetos também tenham a cor correta */
-  body:not(.dark-mode) .projeto-tecnologias h4,
-  body:not(.dark-mode) .projeto-tecnologias li {
+  .projeto-tecnologias h4,
+  .projeto-tecnologias li {
     color: var(--color-text-primary);
   }
   
@@ -198,7 +170,7 @@
   .Tecnologias h3,
   .projetos-titulo,
   .Contato h3 {
-    color: var(--color-text-primary); /* Usa a variável que já muda conforme o modo */
+    color: var(--color-text-primary);
   }
   
   /* Garantir que o texto do footer também mude corretamente */
@@ -248,158 +220,12 @@
     margin-bottom: 250px;
   }
   
-  /* Estilos para o botão de alternar tema */
-  .theme-toggle {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--color-background-transparent);
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px var(--color-primary-glow);
-    backdrop-filter: blur(5px);
-  }
-  
-  .theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px var(--color-primary-glow);
-  }
-  
-  .theme-toggle:focus {
-    outline: none;
-  }
-  
-  /* Animação para o botão */
-  .theme-toggle svg {
-    transition: transform 0.5s ease;
-  }
-  
-  .theme-toggle:hover svg {
-    transform: rotate(30deg);
-  }
+  /* Estilos de tema removidos */
   
   
-  .Header {
-    height: 85px;
-    left: 0px;
-    top: 0px;
-    padding: 0px 175px;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background-color: transparent;
-    z-index: 1000;
-  }
-  
-  .Header-container {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  
-  .Logo {
-    display: flex;
-    align-items: center;
-    width: auto;
-    height: 150px;
-  }
-  
-  .Logo img {
-    height: 100%;
-    width: auto;
-  }
-  
-  .Navbar {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-  }
-  
-  /* Adicione isso no início do seu arquivo CSS para habilitar rolagem suave */
+  /* Rolagem suave */
   html {
     scroll-behavior: smooth;
-  }
-  
-  .Navbar a {
-    font-size: 20px;
-    font-family: "Orbitron", sans-serif;
-    color: var(--color-text-primary);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .Navbar a:hover,
-  .Navbar a.active {
-    color: var(--color-primary);
-  }
-  
-  .Navbar a.active {
-    font-weight: bold;
-    position: relative;
-  }
-  
-  .Navbar a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-primary);
-  }
-  
-  /* Menu mobile */
-  .mobile-menu-icon {
-    display: none;
-    font-size: 24px;
-    color: var(--color-text-primary);
-    cursor: pointer;
-  }
-  
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 85px;
-    left: 0;
-    width: 100%;
-    background-color: var(--color-background);
-    flex-direction: column;
-    padding: 20px;
-    z-index: 999;
-    border-top: 1px solid var(--color-primary);
-    box-shadow: 0 5px 15px var(--shadow-secondary);
-  }
-  
-  .mobile-menu a {
-    color: var(--color-text-primary);
-    font-family: "Orbitron", sans-serif;
-    text-decoration: none;
-    padding: 15px 0;
-    font-size: 18px;
-    border-bottom: 1px solid var(--border-subtle);
-    transition: color 0.3s ease;
-  }
-  
-  .mobile-menu a:hover,
-  .mobile-menu a.active {
-    color: var(--color-primary);
-  }
-  
-  .mobile-menu.open {
-    display: flex;
   }
   
   @media screen and (max-width: 767px) {
@@ -802,25 +628,16 @@
     z-index: 0;
   }
   
-  /* Regras específicas para o modo escuro (dark mode) */
-  .dark-mode .light {
+  /* Estilos da lâmpada no tema escuro */
+  .light {
+    box-shadow: 0px 10px 40px 25px var(--light-glow);
+    opacity: 1;
     animation: lightFlicker 1.5s ease-in-out 1, glow 2s ease-in-out 1.5s;
   }
   
-  .dark-mode .light-beam {
+  .light-beam {
+    opacity: 0.8;
     animation: beamFadeIn 2s ease-in-out 1 forwards;
-  }
-  
-  /* Regras específicas para o modo claro (não dark mode) */
-  body:not(.dark-mode) .light {
-    box-shadow: none;
-    opacity: 0.3;
-    animation: none;
-  }
-  
-  body:not(.dark-mode) .light-beam {
-    opacity: 0;
-    display: none;
   }
   
   @keyframes glow {
@@ -1090,16 +907,6 @@
   
   .Soft {
     display: flex;
-    padding: 0px 24px;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: px;
-    flex: 1 0 0;
-    align-self: stretch;
-  }
-  
-  .Soft {
-    display: flex;
     padding: 30px;
     flex-direction: column;
     align-items: flex-start;
@@ -1275,169 +1082,7 @@
     }
   }
   
-  /* Estilos para a seção de Projetos */
-  .Projetos {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    padding: 80px 0;
-    gap: 60px;
-    transform: translateY(-300px);
-  }
-  
-  .projetos-titulo {
-    color: var(--color-text-primary);
-    font-family: "DM Mono";
-    font-size: 39px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 40px;
-  }
-  
-  .projetos-intro {
-    max-width: 800px;
-    margin: 0 auto 40px;
-    text-align: center;
-    color: var(--color-text-primary);
-    font-family: "Nunito Sans";
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  
-  .projetos-container {
-    display: flex;
-    flex-direction: column;
-    max-width: var(--espaamento-laptop, 1440px);
-    align-items: center;
-    gap: 80px;
-    width: 100%;
-    padding: 20px;
-  }
-  
-  .projeto-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px; /* Aumentado de 40px para 60px para dar mais espaço entre imagem e texto */
-    width: 100%;
-    max-width: 1300px; /* Aumentado de 1200px para 1300px */
-    padding: 20px;
-  }
-  
-  
-  .projeto-imagem {
-    width: 500px;
-    height: 260px;
-    background: #D9D9D9;
-    object-fit: contain; /* Alterado de 'cover' para 'contain' */
-    flex-shrink: 0;
-    transform: translateX(-50px);
-    display: flex; /* Adicionado para centralizar a imagem */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-  }
-  
-  /* Adicione esta regra para garantir que a imagem dentro do contêiner se ajuste corretamente */
-  .projeto-imagem img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-  
-  .projeto-texto {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex: 1;
-    max-width: 750px; /* Aumentado ainda mais para garantir espaço suficiente */
-  }
-  
-  .projeto-card h2 {
-    color: var(--color-text-primary);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--color-accent);
-    font-family: Orbitron;
-    font-size: 31px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 20px;
-  }
-  
-  .projeto-card p {
-    color: var(--color-text-primary);
-    font-family: "Nunito Sans";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    width: 100%; /* Garante que o parágrafo use toda a largura disponível */
-    max-width: 700px; /* Aumenta o tamanho máximo que o texto pode ocupar */
-    box-sizing: border-box; /* Garante que padding não afete a largura */
-  }
-  
-  .projeto-tecnologias {
-    margin: 15px 0;
-  }
-  
-  .projeto-tecnologias h4 {
-    color: var(--color-text-primary);
-    font-family: Orbitron;
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .projeto-tecnologias ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    list-style: none;
-    padding: 0;
-  }
-  
-  .projeto-tecnologias li {
-    background-color: var(--color-primary-transparent-medium);
-    color: var(--color-text-primary);
-    padding: 4px 10px;
-    border-radius: 15px;
-    font-size: 18px;
-    font-family: "Nunito Sans";
-    border: 1px solid var(--color-primary);
-  }
-  
-  .projeto-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-  }
-  
-  .projeto-link {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    text-decoration: none;
-    color: var(--color-text-primary);
-    padding: 8px 15px;
-    border-radius: 15px;
-    background-color: var(--color-secondary-transparent-medium);
-    border: 1px solid var(--color-secondary);
-    transition: all 0.3s ease;
-    font-family: "Nunito Sans";
-    font-size: 18px;
-  }
-  
-  .projeto-link:hover {
-    background-color: var(--color-primary-transparent-high);
-    border-color: var(--color-primary);
-    transform: translateY(-3px);
-  }
-  
-  .projeto-link svg {
-    font-size: 20px;
-  }
+  /* Estilos da seção Projetos foram movidos para Projeto.css */
   
   .Contato {
     display: flex;
@@ -1750,15 +1395,6 @@
   
   @media screen and (max-width: 900px) {
   
-    .theme-toggle {
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-      bottom: 20px;
-      right: 20px;
-    }
-  
-  
     /* Ajustes gerais */
     .content {
       max-width: 100%;
@@ -2009,50 +1645,7 @@
       font-size: 16px;
     }
   
-    .projetos-container {
-      gap: 50px;
-    }
-  
-    .projeto-card {
-      flex-direction: column-reverse;
-      /* Texto acima, imagem abaixo */
-      gap: 20px;
-      padding: 15px;
-    }
-  
-    .projeto-imagem {
-      width: 100%;
-      height: auto;
-      max-width: 300px;
-      max-height: 300px;
-    }
-  
-    .projeto-texto {
-      max-width: 100%;
-      gap: 15px;
-    }
-  
-    .projeto-card h2 {
-      font-size: 24px;
-      text-align: center;
-    }
-  
-    .projeto-card p {
-      font-size: 18px;
-      text-align: center;
-    }
-  
-    .projeto-tecnologias h4 {
-      text-align: center;
-    }
-  
-    .projeto-tecnologias ul {
-      justify-content: center;
-    }
-  
-    .projeto-links {
-      justify-content: center;
-    }
+    /* Estilos responsivos da seção Projetos foram movidos para Projeto.css */
   
     /* Seção Contato */
     .Contato {

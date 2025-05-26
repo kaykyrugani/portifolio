@@ -1,8 +1,10 @@
 import React from 'react';
-import ProjetoCard from './Projeto.card'; 
-import RefrisImg from '../../assets/imgs/TesteRefri.png';
-import TestePortifolioImg from '../../assets/imgs/TestePortifolio.png';
-import Onlywave from '../../assets/imgs/OnlyWave.png'
+import ProjetoCard from '../ProjetoCard/Projeto.card'; 
+import ScrollReveal from '../../../components/ScrollReveal/ScrollReveal';
+import RefrisImg from '../../../assets/imgs/TesteRefri.png';
+import TestePortifolioImg from '../../../assets/imgs/TestePortifolio.png';
+import Onlywave from '../../../assets/imgs/OnlyWave.png';
+import './Projeto.css';
 
 // Array de dados dos projetos - facilita a manutenção e adição de novos projetos
 // Cada objeto representa um projeto com suas informações específicas
@@ -39,32 +41,51 @@ const projetosData = [
 function Projetos() {
   return (
     <section id="Projetos" className="Projetos">
-      <h3 className="projetos-titulo">Projetos</h3>
+      <ScrollReveal>
+        <h3 className="projetos-titulo">Projetos</h3>
+      </ScrollReveal>
       
-      <div className="projetos-intro">
-        <p>
-          Aqui estão alguns dos meus projetos mais recentes. 
-          Cada projeto representa uma oportunidade de aprendizado e aplicação de diferentes tecnologias.
-          Clique nos links para ver o código fonte ou a demonstração ao vivo.
-        </p>
-      </div>
+      <ScrollReveal delay={0.3}>
+        <div className="projetos-intro">
+          <p>
+            Aqui estão alguns dos meus projetos mais recentes. 
+            Cada projeto representa uma oportunidade de aprendizado e aplicação de diferentes tecnologias.
+            Clique nos links para ver o código fonte ou a demonstração ao vivo.
+          </p>
+        </div>
+      </ScrollReveal>
       
       <div className="projetos-container">
-        {/* 
-          Mapeia o array de dados para criar um componente ProjetoCard para cada projeto
-          Cada propriedade do objeto é passada como prop para o componente
-        */}
-        {projetosData.map((projeto) => (
-          <ProjetoCard
-            key={projeto.id} 
-            titulo={projeto.titulo}
-            descricao={projeto.descricao}
-            imagem={projeto.imagem}
-            githubLink={projeto.githubLink}
-            demoLink={projeto.demoLink}
-            tecnologias={projeto.tecnologias}
-          />
-        ))}
+        {projetosData.map((projeto, index) => {
+          // Atraso de 0.1s entre cada card para criar um efeito de cascata
+          const delay = index * 0.1;
+          return (
+            <ScrollReveal key={projeto.id} delay={delay}>
+              <ProjetoCard
+                titulo={projeto.titulo}
+                descricao={projeto.descricao}
+                imagem={projeto.imagem}
+                githubLink={projeto.githubLink}
+                demoLink={projeto.demoLink}
+                tecnologias={projeto.tecnologias}
+                style={{
+                  transitionDelay: `${delay}s`
+                }}
+              />
+            </ScrollReveal>
+          );
+        })}
+      </div>
+      
+      <div className="ver-mais-container">
+        <a 
+          href="https://github.com/kaykyrugani?tab=repositories" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="ver-mais"
+        >
+          Ver Mais Projetos
+        </a>
       </div>
     </section>
   );

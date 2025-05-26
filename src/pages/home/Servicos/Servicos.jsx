@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import './Servico.css'
 
 // Criando uma referência para acessar o elemento DOM da seção de serviços
 function Servicos() {
