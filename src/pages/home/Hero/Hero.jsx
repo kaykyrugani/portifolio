@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedin, FaFileAlt, FaCode } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import './Hero.css';
 
+
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);

@@ -1,0 +1,10 @@
+.constellation-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at center, #0d0d0d, #050505);
+  pointer-events: none;
+} 

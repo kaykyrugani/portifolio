@@ -56,25 +56,18 @@ function Projetos() {
       </ScrollReveal>
       
       <div className="projetos-container">
-        {projetosData.map((projeto, index) => {
-          // Atraso de 0.1s entre cada card para criar um efeito de cascata
-          const delay = index * 0.1;
-          return (
-            <ScrollReveal key={projeto.id} delay={delay}>
-              <ProjetoCard
-                titulo={projeto.titulo}
-                descricao={projeto.descricao}
-                imagem={projeto.imagem}
-                githubLink={projeto.githubLink}
-                demoLink={projeto.demoLink}
-                tecnologias={projeto.tecnologias}
-                style={{
-                  transitionDelay: `${delay}s`
-                }}
-              />
-            </ScrollReveal>
-          );
-        })}
+        {projetosData.map((projeto) => (
+          <ScrollReveal key={projeto.id}>
+            <ProjetoCard
+              titulo={projeto.titulo}
+              descricao={projeto.descricao}
+              imagem={projeto.imagem}
+              githubLink={projeto.githubLink}
+              demoLink={projeto.demoLink}
+              tecnologias={projeto.tecnologias}
+            />
+          </ScrollReveal>
+        ))}
       </div>
       
       <div className="ver-mais-container">

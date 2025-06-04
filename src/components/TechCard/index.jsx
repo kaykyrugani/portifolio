@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './TechCard.css';
 
-const TechCard = ({ icon: Icon, name, description, color }) => {
+const TechCard = ({ icon: Icon, name, description, color, onMouseEnter, onMouseLeave }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -16,8 +16,8 @@ const TechCard = ({ icon: Icon, name, description, color }) => {
   return (
     <div 
       className={`tech-card ${isVisible ? 'visible' : ''}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={e => { setIsHovered(true); if (onMouseEnter) onMouseEnter(e); }}
+      onMouseLeave={e => { setIsHovered(false); if (onMouseLeave) onMouseLeave(e); }}
       style={{ '--tech-color': color }}
     >
       <div className="tech-icon">

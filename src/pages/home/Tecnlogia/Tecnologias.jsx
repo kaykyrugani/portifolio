@@ -48,10 +48,19 @@ const technologies = [
   }
 ];
 
+function hexToRgba(hex, alpha) {
+  let c = hex.replace('#', '');
+  if (c.length === 3) c = c.split('').map(x => x + x).join('');
+  const num = parseInt(c, 16);
+  return `rgba(${(num >> 16) & 255}, ${(num >> 8) & 255}, ${num & 255}, ${alpha})`;
+}
+
 function Tecnologias() {
   const containerRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [visibleCards, setVisibleCards] = useState(0);
+  const [sectionVisible, setSectionVisible] = useState(false);
+  const [gradientColor, setGradientColor] = useState('rgba(180, 120, 255, 0.12)');
 
   const handleMouseMove = (e) => {
     if (containerRef.current) {
@@ -64,15 +73,33 @@ function Tecnologias() {
   };
 
   useEffect(() => {
+    // Intersection Observer para animar ao scroll
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSectionVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+    return () => {
+      if (containerRef.current) observer.unobserve(containerRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!sectionVisible) return;
     // Anima os cards um por um
-    const timer = setTimeout(() => {
-      if (visibleCards < technologies.length) {
+    if (visibleCards < technologies.length) {
+      const timer = setTimeout(() => {
         setVisibleCards(prev => prev + 1);
-      }
-    }, 150);
-    
-    return () => clearTimeout(timer);
-  }, [visibleCards, technologies.length]);
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [visibleCards, sectionVisible]);
 
   return (
     <section 
@@ -81,7 +108,8 @@ function Tecnologias() {
       onMouseMove={handleMouseMove}
       style={{
         '--mouse-x': `${mousePosition.x}%`,
-        '--mouse-y': `${mousePosition.y}%`
+        '--mouse-y': `${mousePosition.y}%`,
+        '--gradient-color': gradientColor
       }}
     >
       <div className="section-header">
@@ -98,12 +126,16 @@ function Tecnologias() {
               '--delay': `${index * 0.1}s`,
               '--tech-color': tech.color
             }}
+            onMouseEnter={() => setGradientColor(hexToRgba(tech.color, 0.15))}
+            onMouseLeave={() => setGradientColor('rgba(180, 120, 255, 0.12)')}
           >
             <TechCard 
               icon={tech.icon} 
               name={tech.name} 
               description={tech.description}
               color={tech.color}
+              onMouseEnter={() => setGradientColor(hexToRgba(tech.color, 0.15))}
+              onMouseLeave={() => setGradientColor('rgba(180, 120, 255, 0.12)')}
             />
           </div>
         ))}

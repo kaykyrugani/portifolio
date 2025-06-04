@@ -1,5 +1,6 @@
 import React from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import "./ProjetoCard.css";
 
 // Componente de card de projeto que recebe várias props
 // O parâmetro tecnologias tem um valor padrão de array vazio para evitar erros
@@ -49,7 +50,7 @@ function ProjetoCard({ titulo, descricao, imagem, githubLink, demoLink, tecnolog
           {/* Link para a demo - só é renderizado se demoLink existir */}
           {demoLink && (
             <a href={demoLink} target="_blank" rel="noopener noreferrer" className="projeto-link">
-              <FaExternalLinkAlt />  Demo
+              <FaExternalLinkAlt /> Demo
             </a>
           )}
         </div>

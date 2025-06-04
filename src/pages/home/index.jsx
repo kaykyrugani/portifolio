@@ -7,7 +7,8 @@ import Tecnologias from '../../pages/home/Tecnlogia/Tecnologias.jsx'
 import Projetos from '../../pages/home/Projetos/Projeto.jsx'
 import Contato from '../../pages/home/Contato/Contato.jsx'
 import Precos from '../../pages/home/Precos/Precos.jsx'
-import AnimatedBackground from '../../components/AnimatedBackground/AnimatedBackground'
+import Sobre from '../../pages/home/SobEu/SobEu.jsx'
+import ConstellationCanvas from '../../components/BackgroundConstellation/ConstellationCanvas'
 
 
 
@@ -15,9 +16,10 @@ function Home() {
   return (
     <>
       <div class="content">
-        <AnimatedBackground />
+        <ConstellationCanvas />
         <Header />
         <Hero />
+        <Sobre />
         <Servicos />
         <Tecnologias />
         <Precos />

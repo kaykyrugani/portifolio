@@ -54,10 +54,11 @@
 
 .technologies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 30px;
   position: relative;
   z-index: 2;
+  justify-items: center;
 }
 
 .tech-card-wrapper {
@@ -82,7 +83,7 @@
   height: 200%;
   background: radial-gradient(
     circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(77, 181, 255, 0.1) 0%,
+    var(--gradient-color, rgba(77, 181, 255, 0.1)) 0%,
     rgba(0, 0, 0, 0) 40%
   );
   opacity: 0.5;
@@ -124,7 +125,8 @@
   }
   
   .technologies-grid {
-    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 20px;
   }
 }
 
@@ -167,7 +169,7 @@
   
   .technologies-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 20px;
   }
 }
 
