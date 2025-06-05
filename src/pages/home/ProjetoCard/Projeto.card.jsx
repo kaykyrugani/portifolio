@@ -1,13 +1,52 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import ParticleCanvas from "../../../components/ParticleCanvas/ParticleCanvas.jsx";
 import "./ProjetoCard.css";
 
 // Componente de card de projeto que recebe várias props
 // O parâmetro tecnologias tem um valor padrão de array vazio para evitar erros
 function ProjetoCard({ titulo, descricao, imagem, githubLink, demoLink, tecnologias = [] }) {
+  const cardRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left; // x position within the element.
+    const y = e.clientY - rect.top;  // y position within the element.
+
+    // Calculate rotation based on mouse position relative to the center of the card
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * 10; // Max tilt 10deg
+    const rotateY = ((x - centerX) / centerX) * -10; // Max tilt -10deg
+
+    cardRef.current.style.setProperty('--x', `${x}px`);
+    cardRef.current.style.setProperty('--y', `${y}px`);
+    cardRef.current.style.setProperty('--rotateX', `${rotateX}deg`);
+    cardRef.current.style.setProperty('--rotateY', `${rotateY}deg`);
+
+    cardRef.current.classList.add('is-hovered');
+  };
+
+  const handleMouseLeave = () => {
+    if (!cardRef.current) return;
+    cardRef.current.classList.remove('is-hovered');
+    // Reset rotation values to smooth transition back
+    cardRef.current.style.setProperty('--rotateX', '0deg');
+    cardRef.current.style.setProperty('--rotateY', '0deg');
+  };
+
   return (
     // Container principal do card
-    <div className="projeto-card">
+    <div
+      className="projeto-card"
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <ParticleCanvas />
       {/* Container da imagem com efeito de máscara */}
       <div className="projeto-imagem-container">
         <img src={imagem} alt={titulo} className="projeto-imagem" />

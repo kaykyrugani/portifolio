@@ -4,7 +4,7 @@ image.png/* ======= SEÇÃO PROJETOS ======= */
   width: 100%;
   flex-direction: column;
   align-items: center;
-  padding: 120px 20px 60px;
+  padding: 140px 30px 80px;
   background-color: var(--color-background);
   position: relative;
   overflow: hidden;
@@ -12,6 +12,7 @@ image.png/* ======= SEÇÃO PROJETOS ======= */
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease-out forwards;
   animation-delay: 0.2s;
+  perspective: 1000px;
 }
 
 @keyframes fadeInUp {
@@ -33,28 +34,43 @@ image.png/* ======= SEÇÃO PROJETOS ======= */
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 10% 20%, rgba(1, 186, 239, 0.1) 0%, transparent 20%),
-    radial-gradient(circle at 90% 30%, rgba(157, 0, 255, 0.1) 0%, transparent 25%),
-    radial-gradient(circle at 30% 70%, rgba(1, 239, 186, 0.08) 0%, transparent 25%),
-    radial-gradient(circle at 70% 80%, rgba(255, 0, 200, 0.05) 0%, transparent 30%);
+    radial-gradient(circle at 15% 25%, rgba(1, 186, 239, 0.15) 0%, transparent 25%),
+    radial-gradient(circle at 85% 35%, rgba(157, 0, 255, 0.15) 0%, transparent 30%),
+    radial-gradient(circle at 40% 75%, rgba(1, 239, 186, 0.12) 0%, transparent 30%),
+    radial-gradient(circle at 60% 85%, rgba(255, 0, 200, 0.1) 0%, transparent 35%);
   z-index: 0;
   pointer-events: none;
-  opacity: 0.8;
-  animation: gradientMove 25s ease infinite;
-  background-size: 200% 200%;
-  filter: blur(60px);
+  opacity: 0.9;
+  animation: gradientMove 30s ease infinite alternate;
+  background-size: 300% 300%;
+  filter: blur(80px);
+  transform: translateZ(-200px);
 }
 
 @keyframes gradientMove {
   0% {
     background-position: 0% 0%;
+    transform: translateZ(-200px) rotate(0deg);
   }
   50% {
     background-position: 100% 100%;
+    transform: translateZ(-150px) rotate(5deg);
   }
   100% {
     background-position: 0% 0%;
+    transform: translateZ(-200px) rotate(0deg);
   }
+}
+
+.projetos-background-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.1;
 }
 
 .projetos-titulo {
@@ -67,31 +83,44 @@ image.png/* ======= SEÇÃO PROJETOS ======= */
   position: relative;
   display: inline-block;
   width: 100%;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(90deg, #60a5fa 0%, #c084fc 20%, #0efefe 40%, #60a5fa 60%, #c084fc 80%, #0efefe 100%);
+  background-size: 400% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  animation: gradient 8s ease infinite;
-  background-size: 200% 200%;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
+  animation: shimmerEffect 8s linear infinite, glitchEffect 1s steps(1) infinite;
 }
 
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes shimmerEffect {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 0%; }
+}
+
+@keyframes glitchEffect {
+  0% { text-shadow: 0 0px 0px rgba(0, 0, 0, 0.2); transform: translateX(0px); }
+  10% { text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), -1px 0px 0px rgba(255, 0, 0, 0.5); transform: translateX(-1px); }
+  12% { text-shadow: 0 0px 0px rgba(0, 0, 0, 0.2); transform: translateX(0px); }
+  20% { text-shadow: 0 -2px 2px rgba(0, 0, 0, 0.4), 2px 0px 0px rgba(0, 255, 255, 0.5); transform: translateX(2px); }
+  22% { text-shadow: 0 0px 0px rgba(0, 0, 0, 0.2); transform: translateX(0px); }
+  30% { text-shadow: 0 3px 3px rgba(0, 0, 0, 0.5), -3px 0px 0px rgba(255, 0, 255, 0.5); transform: translateX(-3px); }
+  32% { text-shadow: 0 0px 0px rgba(0, 0, 0, 0.2); transform: translateX(0px); }
+  40% { text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.3), 1px 0px 0px rgba(0, 255, 0, 0.5); transform: translateX(1px); }
+  42% { text-shadow: 0 0px 0px rgba(0, 0, 0, 0.2); transform: translateX(0px); }
+  50% { text-shadow: 0 0px 0px rgba(0, 0, 0, 0.2); transform: translateX(0px); }
+  100% { text-shadow: 0 0px 0px rgba(0, 0, 0, 0.2); transform: translateX(0px); }
 }
 
 .projetos-intro {
-  max-width: 800px;
-  margin: 0 auto 60px;
+  max-width: 900px;
+  margin: 0 auto 70px;
   text-align: center;
   color: var(--color-text-secondary);
   font-family: "Nunito Sans", sans-serif;
-  font-size: 1.25rem;
-  line-height: 1.8;
-  padding: 0 20px;
+  font-size: 1.35rem;
+  line-height: 1.7;
+  padding: 0 30px;
   position: relative;
   z-index: 1;
   opacity: 0.9;
@@ -100,10 +129,10 @@ image.png/* ======= SEÇÃO PROJETOS ======= */
 .projetos-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
+  gap: 48px;
   width: 100%;
-  max-width: 1200px;
-  padding: 0 10px;
+  max-width: 1300px;
+  padding: 0 20px;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -113,7 +142,7 @@ image.png/* ======= SEÇÃO PROJETOS ======= */
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .ver-mais {
@@ -130,7 +159,9 @@ image.png/* ======= SEÇÃO PROJETOS ======= */
   font-weight: 600;
   font-size: 1.1rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: none;
+  border: 2px solid transparent;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(1, 186, 239, 0.3);
   position: relative;
@@ -138,25 +169,54 @@ image.png/* ======= SEÇÃO PROJETOS ======= */
   z-index: 1;
   transform: translateZ(0);
   will-change: transform, box-shadow;
-  animation: pulseButton 3s infinite;
+  animation: pulseButton 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ver-mais::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(45deg, #60a5fa, #c084fc, #0efefe);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  animation: borderGradient 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.ver-mais:hover::before {
+  opacity: 1;
+}
+
+@keyframes borderGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes pulseButton {
   0% {
-    box-shadow: 0 0 0 0 rgba(1, 186, 239, 0.4);
+    box-shadow: 0 0 0 0 rgba(1, 186, 239, 0.4),
+                0 0 0 0 rgba(157, 0, 255, 0.3);
   }
   70% {
-    box-shadow: 0 0 0 15px rgba(1, 186, 239, 0);
+    box-shadow: 0 0 0 15px rgba(1, 186, 239, 0),
+                0 0 0 10px rgba(157, 0, 255, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(1, 186, 239, 0);
+    box-shadow: 0 0 0 0 rgba(1, 186, 239, 0.4),
+                0 0 0 0 rgba(157, 0, 255, 0.3);
   }
 }
 
 .ver-mais:hover {
   animation: none;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(1, 186, 239, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(1, 186, 239, 0.6), 0 5px 20px rgba(157, 0, 255, 0.4);
 }
 
 .ver-mais:active {
@@ -165,49 +225,60 @@ image.png/* ======= SEÇÃO PROJETOS ======= */
 
 @media screen and (max-width: 1200px) {
   .projetos-titulo {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
   .projetos-intro {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
   }
   .projetos-container {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1100px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .Projetos {
-    padding: 80px 10px 40px;
+    padding: 100px 15px 50px;
   }
   .projetos-titulo {
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
   }
   .projetos-intro {
-    font-size: 1rem;
-    margin-bottom: 40px;
+    font-size: 1.05rem;
+    margin-bottom: 45px;
+    padding: 0 15px;
   }
   .projetos-container {
     grid-template-columns: 1fr;
-    max-width: 600px;
-    padding: 0 5px;
+    max-width: 500px;
+    gap: 30px;
+  }
+  .ver-mais-container {
+    margin-top: 40px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .Projetos {
-    padding: 60px 5px 30px;
+    padding: 80px 10px 40px;
   }
   .projetos-titulo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   .projetos-intro {
-    padding: 0 5px;
-    margin-bottom: 20px;
+    padding: 0 10px;
+    margin-bottom: 30px;
   }
   .projetos-container {
-    padding: 0 2px;
+    padding: 0 10px;
+    gap: 25px;
+  }
+  .ver-mais {
+    padding: 12px 25px;
+    font-size: 1rem;
   }
 }
 

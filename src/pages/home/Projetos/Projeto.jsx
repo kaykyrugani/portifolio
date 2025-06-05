@@ -1,6 +1,7 @@
 import React from 'react';
 import ProjetoCard from '../ProjetoCard/Projeto.card'; 
 import ScrollReveal from '../../../components/ScrollReveal/ScrollReveal';
+import ConstellationCanvas from '../../../components/ConstellationCanvas/ConstellationCanvas.jsx';
 import RefrisImg from '../../../assets/imgs/TesteRefri.png';
 import TestePortifolioImg from '../../../assets/imgs/TestePortifolio.png';
 import Onlywave from '../../../assets/imgs/OnlyWave.png';
@@ -41,6 +42,7 @@ const projetosData = [
 function Projetos() {
   return (
     <section id="Projetos" className="Projetos">
+      <ConstellationCanvas />
       <ScrollReveal>
         <h3 className="projetos-titulo">Projetos</h3>
       </ScrollReveal>
