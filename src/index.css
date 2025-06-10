@@ -32,6 +32,10 @@ h2 {
   line-height: normal;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #0C090D;
   width: 100vw;

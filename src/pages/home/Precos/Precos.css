@@ -4,13 +4,14 @@
   flex-direction: column;
   align-items: center;
   padding: 120px 20px 60px;
-  background-color: var(--color-background);
+  background-color: transparent;
   position: relative;
   overflow: hidden;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease-out forwards;
   animation-delay: 0.2s;
+  z-index: 1;
 }
 
 .precossection::before {
@@ -95,7 +96,7 @@
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 40px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   padding: 0 10px;
   margin: 0 auto;
   position: relative;
@@ -103,9 +104,64 @@
   justify-items: center;
 }
 
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.neon-line {
+  position: absolute;
+  top: 60%;
+  left: -180px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.neon-path {
+  filter: drop-shadow(0 0 5px rgba(0, 255, 157, 0.7));
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: draw 3s ease-in-out forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.rocket-container {
+  position: absolute;
+  right: 80px;
+  top: 264px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeInRocket 0.5s ease-in-out 3s forwards;
+}
+
+@keyframes fadeInRocket {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.rocket-img {
+  width: 120px;
+  height: auto;
+  transform: rotate(30deg);
+  filter: drop-shadow(0 0 5px rgba(0, 255, 157, 0.7));
+}
+
 .planocard {
-  min-width: 340px;
-  max-width: 400px;
+  min-width: 400px;
+  max-width: 500px;
   min-height: 600px;
   height: 100%;
   box-sizing: border-box;
@@ -115,7 +171,7 @@
   justify-content: flex-start;
   margin: 0 auto;
   background: rgba(30, 31, 40, 0.98);
-  border-radius: 28px;
+  border-radius: 42px;
   box-shadow: 0 8px 32px rgba(1, 186, 239, 0.10), 0 1.5px 8px rgba(157, 0, 255, 0.08);
   padding: 2.8rem 2.2rem 2.2rem 2.2rem;
   overflow: hidden;
@@ -124,6 +180,8 @@
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.7s cubic-bezier(0.4,0,0.2,1) forwards;
+  position: relative;
+  z-index: 2;
 }
 
 .planocard:nth-child(1) { animation-delay: 0.1s; }
@@ -137,8 +195,10 @@
 }
 
 .planocard.destaque {
-  background: linear-gradient(135deg, rgba(1,186,239,0.13) 0%, rgba(157,0,255,0.10) 100%);
-  border: 2.5px solid var(--color-primary);
+  border-radius: 42px;
+  padding: 2.8rem 2.2rem 2.2rem 2.2rem;
+  background: rgba(30, 31, 40, 0.98); 
+ border: 2.5px solid var(--color-primary);
   box-shadow: 0 20px 60px rgba(1, 186, 239, 0.22), 0 8px 32px rgba(157, 0, 255, 0.12);
   z-index: 2;
   transform: scale(1.04);
@@ -146,18 +206,18 @@
 
 .destaquebadge {
   position: absolute;
-  top: 24px;
-  right: -32px;
+  top: 0px;
+  
   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
   color: white;
   padding: 8px 0;
-  transform: rotate(40deg);
+  
   font-size: 0.8rem;
   font-weight: 700;
   box-shadow: 0 5px 20px rgba(1, 186, 239, 0.18);
   letter-spacing: 0.8px;
   z-index: 10;
-  width: 140px;
+  width: 440px;
   border-radius: 40px 40px 0 0px;
   text-align: center;
   text-transform: uppercase;
@@ -294,6 +354,7 @@
   position: relative;
   padding: 0.6rem 1rem 0.6rem 2.5rem;
   line-height: 1.5;
+  gap: 0.5rem;
   font-size: 1rem;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -316,6 +377,7 @@
   background: rgba(1, 186, 239, 0.1);
   width: 1.8rem;
   height: 1.8rem;
+  gap: 0.5rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -374,6 +436,8 @@
 }
 
 /* Responsividade */
+
+
 @media screen and (max-width: 1200px) {
   .sectiontitle { font-size: 2.5rem; }
   .sectionsubtitle { font-size: 1.1rem; }
@@ -388,20 +452,36 @@
   }
 }
 
+
+@media screen and (max-width: 1037px) {
+  .rocket-container {
+    right: 80px;
+    top: 264px;
+  }
+
+  .rocket-img{
+    transform: translateY(200px);
+  }
+}
+
 @media screen and (max-width: 768px) {
   .precossection { padding: 80px 10px 40px; }
   .sectiontitle { font-size: 2rem; margin-bottom: 15px; }
   .sectionsubtitle { font-size: 1rem; margin-bottom: 40px; }
   .planocard {
-    min-width: 90vw;
+    
     max-width: 98vw;
-    min-height: 420px;
+    min-height: 320px;
     padding: 2rem 1.2rem;
   }
   .precogrid {
     grid-template-columns: 1fr;
-    max-width: 600px;
+    max-width: 400px;
     padding: 0 5px;
+  }
+
+  .rocket-img{
+    transform: translateY(400px);
   }
 }
 
@@ -410,8 +490,7 @@
   .sectiontitle { font-size: 1.5rem; }
   .sectionsubtitle { padding: 0 5px; margin-bottom: 20px; }
   .planocard {
-    min-width: 98vw;
-    max-width: 100vw;
+    
     min-height: 340px;
     padding: 1.2rem 0.5rem;
   }
@@ -419,17 +498,29 @@
     font-size: 1.1rem;
     padding: 0.7rem 0.7rem;
   }
+
+  .rocket-container {
+    right: -10px;
+    top: -264px;
+  }
+
+  .neon-line{
+  display: none;
+  }
 }
 
 /* Ajuste para o grid não ficar fino demais */
 @media (max-width: 400px) {
   .planocard {
-    min-width: 98vw;
-    max-width: 100vw;
     padding: 0.8rem 0.2rem;
   }
   .avista {
     font-size: 1.1rem;
     padding: 0.7rem 0.7rem;
+  }
+
+  .rocket-container{
+    top: -404px;
+    right: -20px;
   }
 }

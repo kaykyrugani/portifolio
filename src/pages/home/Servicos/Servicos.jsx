@@ -1,104 +1,141 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { FaLaptopCode, FaServer } from 'react-icons/fa';
+import React, { useState, useEffect, useRef } from 'react';
+import { FaLaptopCode, FaServer, FaGlobe, FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import './Servico.css';
 
 const Servicos = () => {
-  const servicosRef = useRef(null);
+  const [activeCard, setActiveCard] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-servicos');
-            observer.unobserve(entry.target);
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
       },
-      { 
-        threshold: 0.1, 
-        rootMargin: '0px 0px -50px 0px' 
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
       }
     );
 
-    if (servicosRef.current) {
-      const items = servicosRef.current.querySelectorAll('.servicos-item');
-      items.forEach(item => {
-        observer.observe(item);
-      });
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
     }
 
     return () => {
-      observer.disconnect();
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
     };
   }, []);
 
-  // Adiciona uma classe inicial para garantir que o container esteja visível
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => {
-    setIsMounted(true);
-    return () => setIsMounted(false);
-  }, []);
+  const toggleCard = (index) => {
+    setActiveCard(activeCard === index ? null : index);
+  };
 
   const servicos = [
     {
-      icone: <FaLaptopCode className="icon" />,
-      titulo: 'Criação de Sites e Landing Pages',
-      subtitulo: 'Transforme suas ideias em experiências digitais únicas',
+      icone: <FaLaptopCode className="servico-icon" />,
+      titulo: 'Criação de Sites',
+      subtitulo: 'Sites profissionais e personalizados',
       descricao: (
         <>
-          <p>
-            Você já teve uma ideia incrível, mas não sabia como colocá-la online de forma profissional e impactante? É aí que eu entro.
+          <p className="mb-4">
+            Desenvolvimento de sites completos, responsivos e otimizados para motores de busca.
           </p>
-          <p>
-            <b>Sou Kayky Rugani</b>, freelancer especializado na criação de sites e landing pages pensadas para encantar seu público e entregar resultados. Mais do que apenas "colocar algo no ar", meu objetivo é criar experiências digitais que comuniquem sua essência com clareza, agilidade e design de qualidade.
-          </p>
-          <p>
-            Um site bem construído é mais do que uma vitrine — ele é seu cartão de visita digital, disponível 24 horas por dia. E uma landing page bem planejada pode ser a chave para transformar visitantes em clientes.
-          </p>
-          <ul className="servico-bullets">
-            <li>✔️ Você economiza tempo e evita dores de cabeça.</li>
-            <li>✔️ Ganha um visual moderno e personalizado.</li>
-            <li>✔️ Tem liberdade para focar no que realmente importa: seu negócio.</li>
+          <ul className="space-y-2 mb-4">
+            <li>• Design moderno e responsivo</li>
+            <li>• Otimização para SEO</li>
+            <li>• Integração com redes sociais</li>
+            <li>• Formulários de contato</li>
           </ul>
-          <p className="servico-italic">A criatividade? É o único limite!<br/>Cada projeto é único e feito sob medida, com foco total nos seus objetivos.</p>
         </>
       ),
     },
     {
-      icone: <FaServer className="icon" />,
-      titulo: 'Hospedagem e Manutenção',
-      subtitulo: 'Seu site no ar com segurança, velocidade e tranquilidade',
+      icone: <FaGlobe className="servico-icon" />,
+      titulo: 'Landing Pages',
+      subtitulo: 'Conversão máxima de visitantes',
       descricao: (
         <>
-          <p>
-            Criar um site incrível é só o começo. Manter ele funcionando perfeitamente, seguro e sempre atualizado exige atenção constante — e é por isso que ofereço serviços completos de hospedagem e manutenção.
+          <p className="mb-4">
+            Landing pages otimizadas para conversão, criadas para destacar seus produtos ou serviços.
           </p>
-          <p>
-            Meu nome é Kayky Rugani e, como freelancer, cuido pessoalmente da estabilidade do seu site, para que ele continue sendo seu melhor aliado online. Nada de páginas lentas, fora do ar ou com erros: comigo, seu site está sempre pronto para receber visitantes.
-          </p>
-          <ul className="servico-bullets">
-            <li>🔧 Atualizações regulares e suporte rápido.</li>
-            <li>🔒 Proteção contra falhas e ameaças digitais.</li>
-            <li>🚀 Performance otimizada, com carregamento ágil.</li>
-            <li>🧠 Mente tranquila para focar no seu crescimento.</li>
+          <ul className="space-y-2 mb-4">
+            <li>• Design focado em conversão</li>
+            <li>• Integração com ferramentas de marketing</li>
+            <li>• Testes A/B</li>
+            <li>• Análise de métricas</li>
           </ul>
-          <p className="servico-italic">Você pensou, eu crio. Você precisa de estabilidade, eu mantenho.<br/>Simples assim.</p>
         </>
       ),
-    }
+    },
+    {
+      icone: <FaServer className="servico-icon" />,
+      titulo: 'Hospedagem e Manutenção',
+      subtitulo: 'Seu site sempre no ar e seguro',
+      descricao: (
+        <>
+          <p className="mb-4">
+            Serviços completos de hospedagem e manutenção para garantir que seu site funcione perfeitamente.
+          </p>
+          <ul className="space-y-2 mb-4">
+            <li>• Hospedagem de alta performance</li>
+            <li>• Atualizações regulares</li>
+            <li>• Backup diário</li>
+            <li>• Suporte técnico</li>
+          </ul>
+        </>
+      ),
+    },
   ];
 
   return (
-    <section id='Servicos' className={`Servicos ${isMounted ? 'mounted' : ''}`} ref={servicosRef}>
-      <h3 className="servicos-item">Meus Serviços</h3>
-      <div className='servico-container'>
+    <section 
+      ref={sectionRef}
+      className={`servicos-container ${isVisible ? 'visible' : ''}`}
+      id="servicos"
+    >
+      <h2 className="text-3xl font-bold text-center mb-12 text-white">Nossos Serviços</h2>
+      <div className="servicos-grid">
         {servicos.map((servico, index) => (
-          <div key={index} className="servico-card servicos-item servico-centralizado">
-            <div className="servico-icone-centralizado">{servico.icone}</div>
-            <h2 className="servico-titulo-centralizado">{servico.titulo}</h2>
-            <h4 className="servico-subtitulo servico-subtitulo-centralizado">{servico.subtitulo}</h4>
-            <div className="servico-descricao servico-descricao-centralizada">{servico.descricao}</div>
+          <div 
+            key={index} 
+            className={`servico-card ${activeCard === index ? 'active' : ''}`}
+            onClick={() => toggleCard(index)}
+          >
+            <div className="card-front">
+              <div className="servico-icon-wrapper">
+                {servico.icone}
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{servico.titulo}</h3>
+              <p className="text-sm opacity-80 mb-4">{servico.subtitulo}</p>
+              <button className="saiba-mais-btn">
+                Saiba mais <FaChevronRight className="inline ml-1" />
+              </button>
+              <div className="card-glow"></div>
+            </div>
+            <div className="card-back">
+              <button 
+                className="back-button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleCard(index);
+                }}
+              >
+                <FaChevronLeft className="inline mr-1" /> Voltar
+              </button>
+              <div className="servico-content">
+                <h3 className="text-xl font-semibold mb-4">{servico.titulo}</h3>
+                <div className="servico-descricao">
+                  {servico.descricao}
+                </div>
+                <button className="cta-button mt-4">Solicitar Orçamento</button>
+              </div>
+            </div>
           </div>
         ))}
       </div>

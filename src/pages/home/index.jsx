@@ -20,10 +20,10 @@ function Home() {
         <Header />
         <Hero />
         <Sobre />
-        <Servicos />
-        <Tecnologias />
-        <Precos />
         <Projetos />
+        <Servicos />
+        <Precos />
+        <Tecnologias />
         <Contato />
         <Footer />
       </div>

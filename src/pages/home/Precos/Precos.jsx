@@ -1,5 +1,6 @@
 import React from 'react';
 import './Precos.css';
+import RocketImg from '../../../assets/imgs/Rocket.png';
 
 const Precos = () => {
   const planos = [
@@ -51,6 +52,25 @@ const Precos = () => {
 
   return (
     <section id="precos" className="precossection">
+      {/* Neon Green Dashed Line */}
+      <svg className="neon-line" width="100%" height="100%" viewBox="0 0 1440 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path 
+          d="M-100 700 C 200 650, 300 500, 600 400 C 900 300, 1100 250, 1440 150" 
+          stroke="#00ff9d" 
+          strokeWidth="2" 
+          strokeDasharray="10, 6" 
+          strokeLinecap="round"
+          fill="none"
+          className="neon-path"
+        />
+      </svg>
+      <div className="rocket-container">
+        <img 
+          src={RocketImg} 
+          alt="Foguete" 
+          className="rocket-img" 
+        />
+      </div>
       <div className="container">
         <h2 className="sectiontitle">Planos de Hospedagem</h2>
         <p className="sectionsubtitle">Preços especiais para manutenção e hospedagem do seu site</p>

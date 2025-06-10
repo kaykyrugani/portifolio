@@ -2,8 +2,8 @@
   display: flex;
   align-items: stretch;
   justify-content: center;
-  gap: 3rem;
-  padding: 4.5rem 16rem;
+  gap: 42px;
+  padding: 62px 324px;
   background: var(--color-background-transparent);
   border-radius: 18px;
   box-shadow: 0 10px 30px var(--shadow-primary);

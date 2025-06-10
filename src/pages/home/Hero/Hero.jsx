@@ -145,20 +145,14 @@ const Hero = () => {
                 </motion.a>
               </motion.div>
               
-              <motion.div 
-                className="hero-arrow"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.6 }}
-              >
-                <motion.div 
+              <div className="hero-arrow">
+                <div 
                   className="arrow-down"
                   onClick={() => scrollToSection('sobre')}
-                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 >
                   <FaChevronDown />
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
