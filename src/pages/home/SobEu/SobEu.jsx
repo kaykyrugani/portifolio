@@ -3,10 +3,10 @@ import './SobEu.css';
 import kaykyImg from '../../../assets/imgs/kayky.webp';
 import ScrollReveal from '../../../components/ScrollReveal/ScrollReveal';
 
-const SobEu = () => {
+const SobEu = ({ id }) => {
   return (
     <ScrollReveal threshold={0.15} delay={0}>
-      <section className="sob-eu-section">
+      <section id={id} className="sob-eu-section">
         <ScrollReveal delay={0.1}>
           <div className="sob-eu-img-wrapper">
             <img src={kaykyImg} alt="Kayky Rugani" className="sob-eu-img" />

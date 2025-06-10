@@ -43,7 +43,7 @@ const technologies = [
     id: 'python',
     name: 'Python',
     icon: FaPython,
-    color: '#3776AB',
+    color: '#F7DF1E',
     description: 'Foi a primeira linguagem que aprendi, um pouco antes de entrar na faculdade, porém ainda não trabalhei muito com ela. Vou me aprofundar mais com ela assim que possível.'
   }
 ];

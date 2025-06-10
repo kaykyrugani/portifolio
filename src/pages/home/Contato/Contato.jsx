@@ -89,7 +89,7 @@ function Contato() {
   };
 
   return (
-    <section id="contato" className="contact-section" ref={sectionRef}>
+    <section id="Contato" className="contact-section" ref={sectionRef}>
       <div className="section-header">
         <h2 className="section-title">Vamos Conversar</h2>
         <p className="section-subtitle">Entre em contato para projetos ou apenas para dizer olá!</p>

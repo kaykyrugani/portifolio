@@ -3,16 +3,16 @@ html, body, #root {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 /* Posicionamento do conteúdo sobre o fundo */
 .content {
   position: relative;
   z-index: 1;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  /* min-height: 100vh; */
+  /* display: flex; */
+  /* flex-direction: column; */
 }
 
 /* Garantir que as seções tenham fundo semi-transparente para melhor legibilidade */
@@ -188,11 +188,11 @@ html, body, #root {
     background-color: var(--color-background);
     width: 100vw;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* text-align: center; */
     transition: background-color 0.5s ease, color 0.5s ease;
   }
   
@@ -200,19 +200,13 @@ html, body, #root {
   /* Adicione estas regras no início do seu arquivo CSS, logo após o reset */
   html,
   body {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     width: 100%;
     position: relative;
   }
   
   
-  .content {
-    max-width: calc(100% - 400px);
-    /* 200px de cada lado */
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
-  }
+ 
   
   /* Ou se preferir espaçamento em cima e embaixo */
   section:not(:first-child) {

@@ -236,18 +236,18 @@ function Header() {
             Home
           </a>
           <a
+            href="#Sobre"
+            onClick={(e) => handleNavClick(e, "Sobre")}
+            className={activeSection === "Sobre" ? "active" : ""}
+          >
+            Sobre mim
+          </a>
+          <a
             href="#Servicos"
             onClick={(e) => handleNavClick(e, "Servicos")}
             className={activeSection === "Servicos" ? "active" : ""}
           >
-            Servicos
-          </a>
-          <a
-            href="#Skills"
-            onClick={(e) => handleNavClick(e, "Skills")}
-            className={activeSection === "Skills" ? "active" : ""}
-          >
-            Skills
+            Serviços
           </a>
           <a
             href="#Projetos"
@@ -270,7 +270,7 @@ function Header() {
       <div className="mobile-menu-wrapper">
         <nav 
           id="mobile-menu"
-          className={`mobile-menu ${menuOpen ? 'open' : ''}`}
+          className={`mobile-menu ${menuOpen ? 'open' : ''}`} 
           aria-hidden={!menuOpen}
           ref={menuRef}
           role="navigation"
@@ -285,6 +285,20 @@ function Header() {
             Home
           </a>
           <a
+            href="#About"
+            onClick={(e) => handleNavClick(e, "About")}
+            className={activeSection === "About" ? "active" : ""}
+          >
+            Sobre mim
+          </a>
+          <a
+            href="#Projects"
+            onClick={(e) => handleNavClick(e, "Projects")}
+            className={activeSection === "Projects" ? "active" : ""}
+          >
+            Projetos
+          </a>
+          <a
             href="#Servicos"
             onClick={(e) => handleNavClick(e, "Servicos")}
             className={activeSection === "Servicos" ? "active" : ""}
@@ -292,23 +306,9 @@ function Header() {
             Serviços
           </a>
           <a
-            href="#Skills"
-            onClick={(e) => handleNavClick(e, "Skills")}
-            className={activeSection === "Skills" ? "active" : ""}
-          >
-            Skills
-          </a>
-          <a
-            href="#Projetos"
-            onClick={(e) => handleNavClick(e, "Projetos")}
-            className={activeSection === "Projetos" ? "active" : ""}
-          >
-            Projetos
-          </a>
-          <a
-            href="#Contato"
-            onClick={(e) => handleNavClick(e, "Contato")}
-            className={activeSection === "Contato" ? "active" : ""}
+            href="#Contact"
+            onClick={(e) => handleNavClick(e, "Contact")}
+            className={activeSection === "Contact" ? "active" : ""}
           >
             Contato
           </a>

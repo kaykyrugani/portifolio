@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import ParticleCanvas from "../../../components/ParticleCanvas/ParticleCanvas.jsx";
 import "./ProjetoCard.css";
 
 // Componente de card de projeto que recebe várias props
@@ -46,7 +45,6 @@ function ProjetoCard({ titulo, descricao, imagem, githubLink, demoLink, tecnolog
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <ParticleCanvas />
       {/* Container da imagem com efeito de máscara */}
       <div className="projeto-imagem-container">
         <img src={imagem} alt={titulo} className="projeto-imagem" />

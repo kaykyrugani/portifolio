@@ -10,7 +10,8 @@
   left: 0;
   right: 0;
   width: 100%;
-  background: rgba(15, 23, 42, 0.95);
+  background: #0a192f;
+  color: #ccd6f6;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(74, 90, 121, 0.1);
@@ -51,7 +52,7 @@
 .Logo {
   display: flex;
   align-items: center;
-  height: 40px;
+  height: 20px;
   z-index: 1002;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 0.25rem 0;
@@ -59,7 +60,7 @@
 }
 
 .Logo img {
-  height: 100px;
+  height: 60px;
   max-width: 120px;
   width: auto;
   object-fit: contain;

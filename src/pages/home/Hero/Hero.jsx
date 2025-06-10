@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaGithub, FaLinkedin, FaFileAlt, FaCode } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFileAlt, FaCode, FaChevronDown } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import './Hero.css';
 
@@ -144,11 +144,24 @@ const Hero = () => {
                   <FaLinkedin />
                 </motion.a>
               </motion.div>
+              
+              <motion.div 
+                className="hero-arrow"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.6 }}
+              >
+                <motion.div 
+                  className="arrow-down"
+                  onClick={() => scrollToSection('sobre')}
+                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                >
+                  <FaChevronDown />
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
-        
-
       </section>
     </>
   );
