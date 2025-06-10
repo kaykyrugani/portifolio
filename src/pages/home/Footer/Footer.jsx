@@ -41,41 +41,63 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="footer">
+    <footer className="footer" role="contentinfo" aria-label="Rodapé">
       <div className="footer-content">
-        <div className="footer-section about">
+        <div className="footer-section about" aria-labelledby="about-heading">
           <div className="logo">
-            <FaCode className="logo-icon" />
-            <h3>Kayky Rugani</h3>
+            <FaCode className="logo-icon" aria-hidden="true" />
+            <h3 id="about-heading">Kayky Rugani</h3>
           </div>
           <p className="tagline">Desenvolvedor Full Stack & Designer</p>
           <p className="description">Transformando ideias em realidade através de códigos criativos e soluções inovadoras.</p>
-          <div className="footer-social">
-            <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <FaGithub className="social-icon" />
+          <div className="footer-social" aria-label="Redes sociais">
+            <a 
+              href="https://github.com/seu-usuario" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-link"
+              aria-label="GitHub (abre em nova aba)"
+            >
+              <FaGithub className="social-icon" aria-hidden="true" />
             </a>
-            <a href="https://linkedin.com/in/seu-perfil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <FaLinkedin className="social-icon" />
+            <a 
+              href="https://linkedin.com/in/seu-perfil" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-link"
+              aria-label="LinkedIn (abre em nova aba)"
+            >
+              <FaLinkedin className="social-icon" aria-hidden="true" />
             </a>
-            <a href="https://instagram.com/seu-perfil" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <FaInstagram className="social-icon" />
+            <a 
+              href="https://instagram.com/seu-perfil" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-link"
+              aria-label="Instagram (abre em nova aba)"
+            >
+              <FaInstagram className="social-icon" aria-hidden="true" />
             </a>
-            <a href="mailto:seu-email@exemplo.com" aria-label="Email">
-              <SiGmail className="social-icon" />
+            <a 
+              href="mailto:seu-email@exemplo.com" 
+              className="social-link"
+              aria-label="Enviar e-mail"
+            >
+              <SiGmail className="social-icon" aria-hidden="true" />
             </a>
           </div>
         </div>
 
-        <div className="footer-section contact">
-          <h3>Contato</h3>
+        <div className="footer-section contact" aria-labelledby="contact-heading">
+          <h3 id="contact-heading">Contato</h3>
           <div className="contact-info">
             <div className="contact-item">
-              <FaEnvelope className="contact-icon" />
-              <span>seu-email@exemplo.com</span>
+              <FaEnvelope className="contact-icon" aria-hidden="true" />
+              <a href="mailto:seu-email@exemplo.com" className="contact-link">seu-email@exemplo.com</a>
             </div>
             <div className="contact-item">
-              <FaPhone className="contact-icon" />
-              <span>(00) 00000-0000</span>
+              <FaPhone className="contact-icon" aria-hidden="true" />
+              <a href="tel:5500000000000" className="contact-link">(00) 00000-0000</a>
             </div>
           </div>
         </div>

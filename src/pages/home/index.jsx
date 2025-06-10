@@ -8,7 +8,7 @@ import Projetos from '../../pages/home/Projetos/Projeto.jsx'
 import Contato from '../../pages/home/Contato/Contato.jsx'
 import Precos from '../../pages/home/Precos/Precos.jsx'
 import Sobre from '../../pages/home/SobEu/SobEu.jsx'
-import ConstellationCanvas from '../../components/BackgroundConstellation/ConstellationCanvas'
+import ParticleBackground from '../../components/ParticleBackground'
 
 
 
@@ -16,7 +16,7 @@ function Home() {
   return (
     <>
       <div class="content">
-        <ConstellationCanvas />
+        <ParticleBackground />
         <Header />
         <Hero />
         <Sobre />
