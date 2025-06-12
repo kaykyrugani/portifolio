@@ -19,10 +19,13 @@ function Home() {
         <ParticleBackground />
         <Header />
         <Hero />
-        <Sobre />
+        <div className="SobEu">
+          <Sobre />
+        </div>
         <Projetos />
         <Servicos />
         <Precos />
+        
         <Tecnologias />
         <Contato />
         <Footer />

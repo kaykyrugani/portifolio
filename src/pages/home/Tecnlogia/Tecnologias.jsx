@@ -26,6 +26,13 @@ const technologies = [
     description: 'Também tive meu primeiro contato com essa linguagem na faculdade, há dois anos, onde venho trabalhando e aprendendo mais sobre ela a cada dia, não só para programação web.'
   },
   {
+    id: 'python',
+    name: 'Python',
+    icon: FaPython,
+    color: '#F7DF1E',
+    description: 'Foi a primeira linguagem que aprendi, um pouco antes de entrar na faculdade, porém ainda não trabalhei muito com ela. Vou me aprofundar mais com ela assim que possível.'
+  },
+  {
     id: 'react',
     name: 'React',
     icon: FaReact,
@@ -38,13 +45,6 @@ const technologies = [
     icon: FaFigma,
     color: '#F24E1E',
     description: 'Meus amigos de Design me apresentaram o Figma a um ano e meio, onde me fascinei pela facilidade de construir interfaces, layouts e protótipos, e a facilidade de compartilhar e trabalhar, senti facilidade por já ter familiaridade com Photoshop.'
-  },
-  {
-    id: 'python',
-    name: 'Python',
-    icon: FaPython,
-    color: '#F7DF1E',
-    description: 'Foi a primeira linguagem que aprendi, um pouco antes de entrar na faculdade, porém ainda não trabalhei muito com ela. Vou me aprofundar mais com ela assim que possível.'
   }
 ];
 

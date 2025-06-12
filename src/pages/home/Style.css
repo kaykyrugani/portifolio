@@ -1,6 +1,5 @@
 /* Garantir que o body ocupe toda a altura da tela */
 html, body, #root {
-  min-height: 100vh;
   margin: 0;
   padding: 0;
   /* overflow-x: hidden; */
@@ -15,6 +14,13 @@ html, body, #root {
   /* flex-direction: column; */
 }
 
+/* Estilo para a seção Sobre */
+.SobEu {
+  margin-bottom: 200px !important;
+  position: relative;
+  z-index: 2;
+}
+
 /* Garantir que as seções tenham fundo semi-transparente para melhor legibilidade */
 .Hero, .Servicos, .Skills, .Tecnologias, .Projetos, .Contato {
   background-color: var(--color-background-transparent);
@@ -22,6 +28,9 @@ html, body, #root {
   position: relative;
   z-index: 2;
 }
+
+
+
 
 /* Modo escuro padrão */
 
@@ -205,18 +214,6 @@ html, body, #root {
     position: relative;
   }
   
-  
- 
-  
-  /* Ou se preferir espaçamento em cima e embaixo */
-  section:not(:first-child) {
-    margin-top: 250px;
-    margin-bottom: 250px;
-  }
-  
-  /* Estilos de tema removidos */
-  
-  
   /* Rolagem suave */
   html {
     scroll-behavior: smooth;
@@ -247,6 +244,8 @@ html, body, #root {
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
+    padding: 0 20px;
+    width: 100%;
   }
   
   .hero-content-wrapper {
@@ -328,320 +327,7 @@ html, body, #root {
     opacity: 0;
   }
   
-  /* Rabo dos balões */
-  .icon-code::after,
-  .icon-gear::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 15px solid var(--color-secondary);
-  }
-  
-  
-  /* Adicionando o "rabo" para o ícone de engrenagem */
-  .icon-gear::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 15px solid var(--color-secondary);
-  }
-  
-  .icon-code {
-    left: 15px;
-    top: 55px;
-    animation: appear 1s ease 1.5s forwards, float-code 3s infinite ease-in-out 1.5s;
-  }
-  
-  .icon-gear {
-    right: 15px; 
-    top: 35px;
-    animation: appear 1s ease 1.5s forwards, float-gear 3s infinite ease-in-out 1.5s;
-  }
-  
-  /* Animação específica para o SVG dentro do icon-gear */
-  .icon-gear svg {
-    animation: rotate-gear 8s linear infinite 1.5s;
-  }
-  
-  /* Animação para fazer os ícones aparecerem */
-  @keyframes appear {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  /* Animação para o ícone de código */
-  @keyframes float-code {
-  
-    0%,
-    100% {
-      transform: translateY(0) rotate(0deg);
-    }
-  
-    50% {
-      transform: translateY(-15px) rotate(5deg);
-    }
-  }
-  
-  /* Animação para o ícone de engrenagem */
-  @keyframes float-gear {
-  
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-  
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-  
-  
-  @keyframes rotate-gear {
-    from {
-      transform: rotate(0deg);
-    }
-  
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  .Caneca {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    top: -210px;
-    left: 50%;
-    transform: translate(-90%, 420%);
-    z-index: 3;
-  }
-  
-  .Caneca img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 5px 10px var(--shadow-secondary));
-    transition: transform 0.3s ease;
-  }
-  
-  .Caneca:hover img {
-    transform: rotate(10deg);
-  }
-  
-  .prateleira {
-    position: absolute;
-    width: 320px;
-    height: 22px;
-    top: -100px;
-    left: 50%;
-    transform: translate(-120%, 0);
-    z-index: 1;
-  }
-  
-  .tampoPrateleira {
-    width: 100%;
-    height: 10px;
-    background: var(--gradient-wood);
-    border-radius: 4px;
-    box-shadow: 0px 2px 6px var(--shadow-deep);
-    position: relative;
-    z-index: 2;
-  }
-  
-  .sombraPrateleira {
-    position: absolute;
-    width: 300px;
-    height: 10px;
-    background: var(--shadow-primary);
-    border-radius: 50%;
-    bottom: -15px;
-    left: 10px;
-    filter: blur(4px);
-  }
-  
-  .Livros {
-    position: absolute;
-    width: 200px;
-    height: 250px;
-    top: -210px;
-    left: 50%;
-    transform: translate(-120%, -34%);
-    z-index: 3;
-  }
-  
-  .Livros img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 5px 10px var(--shadow-secondary));
-  }
-  
-  .Vaso {
-    position: absolute;
-    width: 200px;
-    height: 250px;
-    top: -210px;
-    left: 50%;
-    transform: translate(-220%, -51%);
-    z-index: 3;
-  }
-  
-  .Vaso img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 5px 10px var(--shadow-secondary));
-  }
-  
-  .mesa {
-    position: absolute;
-    width: 380px;
-    height: 160px;
-    bottom: -150px;
-    left: 50%;
-    transform: translate(-105px, 52px);
-    z-index: 1;
-  }
-  
-  .tampo {
-    width: 100%;
-    height: 15px;
-    background: var(--gradient-wood);
-    border-radius: 8px;
-    box-shadow: 0px 5px 10px var(--shadow-deep);
-    position: relative;
-    z-index: 2;
-  }
-  
-  .sombra {
-    position: absolute;
-    width: 350px;
-    height: 30px;
-    background: var(--shadow-primary);
-    border-radius: 50%;
-    bottom: -120px;
-    left: 10px;
-    filter: blur(8px);
-    transform: translate(10px, -220px);
-  }
-  
-  .lamp-container {
-    position: absolute;
-    top: -180px;
-    left: 250px;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .wire {
-    position: absolute;
-    width: 5px;
-    height: 120px;
-    background: var(--gradient-lamp-wire);
-    top: -120px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .lamp {
-    width: 110px;
-    height: 70px;
-    background: var(--gradient-lamp);
-    border-radius: 50% 50% 0 0;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 15px 25px var(--shadow-deeper);
-    z-index: 2;
-  }
-  
-  .lamp::after {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 15px;
-    background: var(--lamp-highlight);
-    top: 15px;
-    left: 20px;
-    border-radius: 50%;
-  }
-  .lamp::before {
-    content: "";
-    position: absolute;
-    width: 120%;
-    height: 12px;
-    background: var(--gradient-lamp-base);
-    bottom: 0;
-    border-radius: 10px;
-    z-index: 2;
-  }
-  
-  .light {
-    position: absolute;
-    width: 35px;
-    height: 35px;
-    background: radial-gradient(circle, var(--light-bulb-light), var(--light-bulb-dark));
-    border-radius: 50%;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0px 10px 40px 25px var(--light-glow);
-    z-index: 1;
-    /* Não definimos animação aqui para evitar conflitos */
-  }
-  
-  .light-beam {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(ellipse at center, var(--light-beam-center) 10%, var(--light-beam-edge) 70%, var(--light-beam-fade) 100%);
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    clip-path: polygon(50% 0%, 5% 100%, 95% 100%);
-    filter: blur(12px);
-    opacity: 0.8;
-    z-index: 0;
-  }
-  
-  /* Estilos da lâmpada no tema escuro */
-  .light {
-    box-shadow: 0px 10px 40px 25px var(--light-glow);
-    opacity: 1;
-    animation: lightFlicker 1.5s ease-in-out 1, glow 2s ease-in-out 1.5s;
-  }
-  
-  .light-beam {
-    opacity: 0.8;
-    animation: beamFadeIn 2s ease-in-out 1 forwards;
-  }
-  
-  @keyframes glow {
-    0%, 100% {
-      box-shadow: 0px 10px 40px 25px var(--light-glow);
-    }
-    50% {
-      box-shadow: 0px 10px 50px 30px var(--light-glow-strong);
-    }
-  }
+ 
   
   .texto-container {
     flex: 1.2;
@@ -708,256 +394,20 @@ html, body, #root {
     display: inline-block;
   }
   
-  /* ======= SEÇÃO SERVIÇOS ======= */
-  .Servicos {
-    display: flex;
-    max-width: 1440px;
-    width: 100%;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    transform: translateY(-175px);
-  }
-  
-  /* Animação para a seção de Serviços */
-  .servicos-hidden {
-    opacity: 0;
-  }
-  
-  .servicos-item {
-    opacity: 0;
-    transform: translateY(250px);
-    transition: opacity 1.5s ease, transform 1.5s ease;
-  }
-  
-  .animate-servicos .servicos-item {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Adiciona um pequeno atraso para cada item, criando um efeito em cascata */
-  .animate-servicos h3 {
-    transition-delay: 0.2s;
-  }
-  
-  .animate-servicos .Freelancer {
-    transition-delay: 0.6s;
-  }
-  
-  .animate-servicos .Estagio {
-    transition-delay: 1s;
-  }
-  
-  /* Ajuste para garantir que a seção seja visível após a animação */
-  .animate-servicos {
-    opacity: 1;
-    transition: opacity 1.5s ease;
-  }
-  
-  .Servicos h3 {
-    color: var(--color-text-secondary);
-    font-family: "DM Mono";
-    font-size: 39px;
-    font-weight: 400;
-    text-align: center;
-    margin-bottom: 100px;
-  }
-  
-  /* Estilização dos textos da seção Serviços, seguindo o padrão da seção Skills */
-  .Freelancer, .Estagio {
-    display: flex;
-    padding: 30px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    align-self: stretch;
-    background: var(--color-background-transparent);
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 10px 30px var(--shadow-primary);
-    border-left: 3px solid var(--color-primary);
-    margin: 0 20px;
-  }
-  
-  .Freelancer h2, .Estagio h2 {
-    color: var(--color-text-primary);
-    font-family: Orbitron, sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: left;
-    position: relative;
-    padding-bottom: 15px;
-    -webkit-text-stroke-width: 0;
-    -webkit-text-stroke-color: transparent;
-  }
-  
-  .Freelancer h2::after, .Estagio h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 80px;
-    height: 3px;
-    background: var(--gradient-primary);
-  }
-  
-  .Freelancer p, .Estagio p {
-    color: var(--color-text-secondary);
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 22px;
-    line-height: 1.6;
-    text-align: left;
-    transition: color 0.3s ease;
-    border: none;
-    padding: 0;
-  }
-  
-  .Skills {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-    transform: translateY(-300px);
-  }
-  
-  .Skills h3 {
-    margin-bottom: 40px;
-  }
-  
-  .skills-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin-top: 75px;
-  }
-  
-  .skill-box {
-    flex: 1;
-    transition: transform 0.3s ease;
-  }
-  
-  .skill-box:hover {
-    transform: translateY(-10px);
-  }
-  
-  .skill-box h2 {
-    margin-bottom: 2ch;
-  }
-  
-  .skill-box p {
-    font-size: 18px;
-    line-height: 1.6;
-  }
-  
-  .Hard {
-    display: flex;
-    padding: 30px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    align-self: stretch;
-    background: var(--color-background-transparent);
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 10px 30px var(--shadow-primary);
-    border-left: 3px solid var(--color-primary);
-  }
-  
-  .Hard h2 {
-    color: var(--color-text-primary);
-    font-family: Orbitron, sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: left;
-    position: relative;
-    padding-bottom: 15px;
-  }
-  
-  .Hard h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 80px;
-    height: 3px;
-    background: var(--gradient-primary);
-  }
-  
-  .Hard p {
-    color: var(--color-text-secondary);
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 22px;
-    line-height: 1.6;
-    text-align: left;
-    transition: color 0.3s ease;
-    border: none;
-    padding: 0;
-  }
-  
-  .Soft {
-    display: flex;
-    padding: 30px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    flex: 1 0 0;
-    align-self: stretch;
-    background: var(--color-background-transparent);
-    border-radius: 10px;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 10px 30px var(--shadow-primary);
-    border-left: 3px solid var(--color-primary);
-  }
-  
-  .Soft h2 {
-    color: var(--color-text-primary);
-    font-family: Orbitron, sans-serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.2;
-    text-align: left;
-    position: relative;
-    padding-bottom: 15px;
-  }
-  
-  .Soft h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 80px;
-    height: 3px;
-    background: var(--gradient-primary);
-  }
-  
-  .Soft p {
-    color: var(--color-text-secondary);
-    font-family: "Nunito Sans", sans-serif;
-    font-size: 22px;
-    line-height: 1.6;
-    text-align: left;
-    transition: color 0.3s ease;
-    border: none;
-    padding: 0;
-  }
+
+
   
   /* Estilo para a seção de tecnologias */
   .Tecnologias {
     display: flex;
     width: 100%;
-    max-width: 1920px;
-    padding: 0px 0px;
+    max-width: 1200px;
+    padding: 0 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
-    margin-top: 150px;
-    transform: translateY(-300px);
+    margin: 150px auto 0;
+    transform: none;
   }
   
   .Tecnologias h3 {
@@ -1245,47 +695,10 @@ html, body, #root {
     display: none;
   }
   
-  @media screen and (max-width: 1400px) {
-    .Computador {
-      transform: translate(40%, -39%);
-    }
-    
-    .lamp-container {
-      left: 200px;
-    }
-  }
   
   /* Media query para telas de até 1100px */
   @media screen and (max-width: 1100px) {
-    /* Esconder prateleira, livros e vaso */
-    .prateleira,
-    .Livros,
-    .lamp-container,
-    .Vaso {
-      display: none;
-    }
     
-    /* Ajustar posição do computador para a esquerda */
-    .Computador {
-      transform: translate(-53px, -39%);
-    }
-    
-    /* Ajustar posição da caneca (xícara) */
-    .Caneca {
-      transform: translate(-240px, 420%);
-    }
-    
-    /* Ajustar posição da mesa */
-    .mesa {
-      transform: translate(-255px, 52px);
-    }
-    
-    /* Ajustar posição dos ícones flutuantes */
-    .floating-icons {
-      left: 30%;
-      transform: translateX(0px);
-    }
-  
     
     /* Ajustar o container de imagens para manter proporção */
     .imagens-container {
@@ -1390,13 +803,9 @@ html, body, #root {
   @media screen and (max-width: 900px) {
   
     /* Ajustes gerais */
-    .content {
-      max-width: 100%;
-      padding: 0 20px;
-    }
-  
+   
     section:not(:first-child) {
-      margin-top: 100px;
+      margin-top: 200px;
       margin-bottom: 100px;
     }
   
@@ -1664,9 +1073,7 @@ html, body, #root {
     }
   
     /* Footer */
-    .Footer {
-      padding: 40px 20px;
-    }
+  
   
     .Footer p {
       font-size: 16px;
@@ -1678,14 +1085,7 @@ html, body, #root {
   /* Para telas ainda menores - ajustes adicionais */
   @media screen and (max-width: 500px) {
   
-    .theme-toggle {
-      width: 35px;
-      height: 35px;
-      font-size: 18px;
-      bottom: 15px;
-      right: 15px;
-    }
-  
+   
     .Logo {
       height: 65px; /* 30% do tamanho original de 150px */
     }

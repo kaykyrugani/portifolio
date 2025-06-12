@@ -20,12 +20,13 @@
 
 .contact-section {
   width: 100%;
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 100px 20px;
+  padding: 180px 224px;
   position: relative;
   overflow: hidden;
   background: var(--contact-bg);
+  top: 120px;
 }
 
 .section-header {

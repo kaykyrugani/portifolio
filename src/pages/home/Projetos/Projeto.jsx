@@ -11,13 +11,13 @@ import './Projeto.css';
 // Cada objeto representa um projeto com suas informações específicas
 const projetosData = [
   {
-    id: 1, // Identificador único para o React usar como key
+    id: 1, 
     titulo: "Dev Refri",
     descricao: "O Dev Refri é um site interativo desenvolvido para apresentar diferentes sabores de refrigerantes de forma visualmente atraente. O projeto utiliza HTML, CSS e JavaScript para criar uma experiência dinâmica e intuitiva para o usuário.",
     imagem: RefrisImg, // Caminho para a imagem do projeto
-    githubLink: "https://github.com/kaykyrugani/refris.test", // Link para o repositório no GitHub
-    demoLink: "https://devkaykyrefris.netlify.app", // Link para a demonstração ao vivo
-    tecnologias: ["HTML5", "CSS3", "JavaScript",] // Array com as tecnologias utilizadas
+    githubLink: "https://github.com/kaykyrugani/refris.test", 
+    demoLink: "https://devkaykyrefris.netlify.app", 
+    tecnologias: ["HTML5", "CSS3", "JavaScript",] 
   },
   {
     id: 2,

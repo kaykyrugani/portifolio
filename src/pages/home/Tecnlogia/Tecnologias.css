@@ -14,6 +14,7 @@
   overflow: hidden;
   background: var(--technologies-bg);
   transition: background-color 0.3s ease;
+  top: 200px;
 }
 
 .section-header {
