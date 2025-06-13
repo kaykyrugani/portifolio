@@ -1,0 +1,733 @@
+/* ======= VARIÁVEIS DE CORES ======= */
+:root {
+  --color-bg: #0B0E1C;
+  --color-text: #FFFFFF;
+  --color-text-secondary: #C7C7C7;
+  --color-accent: #8E2DE2;
+  --color-accent-start: #4A00E0;
+  --color-accent-end: #8E2DE2;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-card-bg: rgba(255, 255, 255, 0.03);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ======= ESTILOS BASE ======= */
+.servicosContainer {
+  width: 100%;
+  padding: 6rem 1.5rem;
+  position: relative;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+.servicosContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ======= TÍTULO DA SEÇÃO ======= */
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, var(--color-accent-start), var(--color-accent-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* ======= ABAS DE SERVIÇOS ======= */
+.tabsContainer {
+  position: relative;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.tabsWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.tab {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  outline: none;
+}
+
+.tabContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tabIcon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+  transition: var(--transition);
+}
+
+.tabText {
+  transition: var(--transition);
+}
+
+
+
+/* ======= MAPA DE PASSOS ======= */
+.stepMapContainer {
+  position: relative;
+  margin: 4rem 0;
+  min-height: 700px; /* Aumentando a altura */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px; /* Largura máxima maior */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem; /* Adicionando padding nas laterais */
+}
+
+.stepMap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Linha de conexão */
+.connectingLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+  transform: translateZ(0); /* Melhora a renderização no Chrome */
+  will-change: transform; /* Otimização de performance */
+}
+
+/* Ajustando o SVG para preencher o container */
+.connectingLine svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.linePath {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 4; /* Espessura aumentada */
+  stroke-dasharray: none;
+  opacity: 0.7; /* Opacidade aumentada */
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px rgba(142, 45, 226, 0.6));
+  vector-effect: non-scaling-stroke;
+}
+
+/* Container dos passos */
+.stepsContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1400px; /* Largura maior */
+  height: 100%;
+  min-height: 600px; /* Altura maior */
+  margin: 0 auto;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Estilo do círculo do passo */
+.stepCircle {
+  position: absolute;
+  width: 80px; /* Aumentando um pouco o tamanho */
+  height: 80px; /* Aumentando um pouco o tamanho */
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 2px solid var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  /* Posições serão definidas individualmente */
+}
+
+/* Posicionamento personalizado para cada círculo com mais espaçamento */
+.stepCircle:nth-child(1) { 
+  top: 15%; 
+  left: 10%; 
+  transform: translateY(0);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s ease;
+}
+
+.stepCircle:nth-child(2) { 
+  top: 75%; 
+  left: 25%;
+  transform: translateY(0);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, transform 0.3s ease 0.1s;
+}
+
+.stepCircle:nth-child(3) { 
+  top: 25%; 
+  left: 60%; 
+  transform: translateY(0);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, transform 0.3s ease 0.2s;
+}
+
+.stepCircle:nth-child(4) { 
+  top: 75%; 
+  right: 10%;
+  transform: translateY(0);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, transform 0.3s ease 0.3s;
+}
+
+/* Estilos para telas menores que 780px */
+@media (max-width: 780px) {
+  .stepsContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    padding: 2rem 0;
+    min-height: auto;
+  }
+  
+  .stepCircle {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    margin: 1rem 0;
+    opacity: 1 !important;
+  }
+  
+  .stepMapContainer {
+    min-height: auto;
+    padding: 0 1rem;
+  }
+  
+  .stepMap {
+    min-height: auto;
+  }
+  
+  .connectingLine {
+    display: none; /* Esconde a linha em telas pequenas */
+  }
+  
+  /* Ajustes para o conteúdo do passo em telas pequenas */
+  .stepContent {
+    position: relative;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 100%;
+  }
+}
+
+/* Efeito de hover nos círculos */
+.stepCircle:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(142, 45, 226, 0.4);
+}
+
+.stepCircle.active {
+  transform: translateY(-5px) scale(1.15);
+  box-shadow: 0 10px 30px rgba(142, 45, 226, 0.6);
+}
+
+.stepCircle::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, var(--color-accent-start), var(--color-accent-end)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.stepCircle:hover {
+  background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
+}
+
+.stepCircle.active {
+  background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end));
+}
+
+.stepCircle.active::before {
+  opacity: 1;
+  animation: pulse 2s infinite;
+}
+
+.stepCircleInner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.stepIcon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+  transition: var(--transition);
+}
+
+.stepNumber {
+  position: absolute;
+  bottom: -25px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: var(--transition);
+}
+
+.stepCircle.active .stepNumber {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+.stepTooltip {
+  position: absolute;
+  bottom: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(11, 14, 28, 0.95);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+  text-align: center;
+}
+
+.stepTooltip h4 {
+  margin: 0 0 0.25rem;
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.stepTooltip p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.stepCircle:hover .stepTooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.stepPulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: rgba(138, 43, 226, 0.4);
+  z-index: 1;
+  animation: pulse 2s infinite;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.stepCircle.active .stepPulse {
+  opacity: 1;
+}
+
+/* ======= CONTEÚDO DO PASSO ======= */
+.stepContent {
+  position: relative;
+  max-width: 400px; /* Largura um pouco menor */
+  margin: 2rem auto 0;
+  background: rgba(15, 18, 35, 0.95);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(142, 45, 226, 0.2);
+}
+
+.stepContent.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes popIn {
+  0% { transform: translateY(20px) scale(0.98); opacity: 0; }
+  50% { transform: translateY(-5px) scale(1.02); }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.stepContentHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(142, 45, 226, 0.2);
+}
+
+.stepContentIcon {
+  font-size: 1.25rem; /* Reduzindo o tamanho do ícone */
+  margin-right: 0.75rem;
+  color: var(--color-accent);
+}
+
+.stepContentTitle {
+  margin: 0;
+  font-size: 1.25rem; /* Reduzindo o tamanho da fonte do título */
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.stepContentBody {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.stepContentBody p {
+  margin: 0 0 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.stepContentDetails {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.stepContentDetailItem {
+  display: flex;
+  align-items: flex-start;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 6px;
+  background: rgba(142, 45, 226, 0.05);
+  transition: all 0.2s ease;
+}
+
+.stepContentDetailItem:hover {
+  background: rgba(142, 45, 226, 0.1);
+  transform: translateX(3px);
+}
+
+.stepContentDetailIcon {
+  margin-right: 0.5rem;
+  color: var(--color-accent);
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-top: 0.15rem;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(142, 45, 226, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  opacity: 0.7;
+}
+
+.closeButton:hover,
+.closeButton:focus-visible {
+  background: rgba(142, 45, 226, 0.2);
+  color: var(--color-text);
+  transform: rotate(90deg) scale(1.1);
+  opacity: 1;
+}
+
+/* ======= BOTÃO CTA ======= */
+.ctaContainer {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.ctaText {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(90deg, var(--color-accent-start), var(--color-accent-end));
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent-end), var(--color-accent-start));
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.ctaButton:hover::before,
+.ctaButton:focus-visible::before {
+  opacity: 1;
+}
+
+.ctaButton:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 8px rgba(138, 43, 226, 0.4);
+}
+
+.ctaIcon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .ctaIcon,
+.ctaButton:focus-visible .ctaIcon {
+  transform: translateX(4px);
+}
+
+/* ======= ANIMAÇÕES ======= */
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ======= RESPONSIVIDADE ======= */
+@media (max-width: 1024px) {
+  .sectionTitle {
+    font-size: 2.25rem;
+  }
+  
+  .stepCircle {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicosContainer {
+    padding: 4rem 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tabsWrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .tab {
+    padding: 0.75rem 1rem;
+    justify-content: flex-start;
+    text-align: left;
+    border-radius: var(--radius-sm);
+  }
+  
+  .tabContent {
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .tabIcon {
+    margin-bottom: 0;
+  }
+  
+  .tabIndicator {
+    display: none;
+  }
+  
+  .tabsBackground {
+    display: none;
+  }
+  
+  .stepsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+  
+  .stepMapContainer {
+    min-height: auto;
+    margin: 2rem 0;
+  }
+  
+  .connectingLine {
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+  
+  .stepCircle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .stepTooltip {
+    width: 180px;
+    left: calc(100% + 15px);
+    bottom: 50%;
+    transform: translateY(50%) translateX(10px);
+  }
+  
+  .stepCircle:hover .stepTooltip {
+    transform: translateY(50%) translateX(0);
+  }
+  
+  .stepContent {
+    margin: 2rem 0 0;
+    padding: 1.5rem;
+  }
+  
+  .ctaContainer {
+    margin-top: 3rem;
+  }
+  
+  .ctaText {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+  
+  .stepContent {
+    padding: 1.25rem;
+  }
+  
+  .stepContentTitle {
+    font-size: 1.25rem;
+  }
+  
+  .ctaButton {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+  }
+}
