@@ -31,10 +31,21 @@ h2 {
   line-height: normal;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+}
+
 html, body {
   overflow-x: hidden;
   width: 100%;
   position: relative;
+  scroll-behavior: smooth;
+}
+
+/* Garante que os links âncora rolem para a posição correta */
+:target {
+  scroll-margin-top: 0;
 }
 
 body {

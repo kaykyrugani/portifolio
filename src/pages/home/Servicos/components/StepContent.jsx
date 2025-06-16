@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styles from '../Servicos.module.css';
 
-const StepContent = ({ content, isActive, onClose }) => {
+const StepContent = ({ content, isActive, onClose, stepId }) => {
   const contentRef = useRef(null);
 
   // Fechar ao clicar fora do conteúdo
@@ -28,6 +28,7 @@ const StepContent = ({ content, isActive, onClose }) => {
       ref={contentRef}
       className={`${styles.stepContent} ${isActive ? styles.active : ''}`}
       aria-hidden={!isActive}
+      data-step={stepId}
     >
       <button 
         className={styles.closeButton}
@@ -55,12 +56,6 @@ const StepContent = ({ content, isActive, onClose }) => {
             ))}
           </ul>
         )}
-      </div>
-      
-      <div className={styles.stepContentFooter}>
-        <button className={styles.ctaButton}>
-          Saiba mais sobre {content.title.toLowerCase()}
-        </button>
       </div>
     </div>
   );

@@ -21,8 +21,8 @@ function Home() {
         <div className="SobEu">
           <Sobre />
         </div>
-        <Projetos />
         <Servicos />
+        <Projetos />
         <Precos />
         
         <Tecnologias />

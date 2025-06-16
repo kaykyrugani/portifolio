@@ -187,6 +187,7 @@ const StepMap = ({ steps, activeStep, onStepClick }) => {
             content={steps[activeStep]} 
             isActive={activeStep !== null}
             onClose={() => onStepClick(null)}
+            stepId={activeStep + 1} // Adiciona 1 porque os IDs começam em 1 no data
           />
         )}
       </AnimatePresence>

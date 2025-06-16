@@ -1,14 +1,15 @@
 /* ======= SEÇÃO HERO ======= */
 .hero {
-  min-height: 60vh;
+  min-height: 80vh;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   position: relative;
   background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 90%);
   color: #f8fafc;
-  padding: 6rem 2rem 2rem 2rem;
-  margin-top: -6rem;
+  padding: 0 2rem;
+  scroll-margin-top: 0; /* Garante que o scroll não fique deslocado */
+  scroll-snap-align: start; /* Para um scroll mais suave */
 }
 
 
@@ -16,7 +17,8 @@
 .hero-container {
   max-width: 1200px;
   width: 100%;
-  margin: 4rem auto 0;
+  margin: 0 auto;
+  padding: 6rem 0;
   position: relative;
   z-index: 1;
 }
@@ -26,6 +28,7 @@
   margin: 0 auto;
   text-align: center;
   position: relative;
+  padding-top: 100px; /* Adiciona espaço no topo do conteúdo */
 }
 
 /* Estilo para o texto de saudação */
@@ -42,7 +45,7 @@
   font-weight: 500;
 }
 
-/* Estilo para o título principal */
+
 .hero-title {
   font-size: clamp(2.5rem, 8vw, 4rem);
   font-weight: 800;
@@ -341,7 +344,7 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, 36%);
   z-index: 2;
   display: flex;
   justify-content: center;
@@ -351,7 +354,7 @@
 }
 
 .arrow-down {
-  margin-top: 86px;
+  margin-top: 286px;
   color: #f8fafc;
   font-size: 1.5rem;
   display: flex;
@@ -366,15 +369,15 @@
 
 @media (max-width: 1700px) {
   .arrow-down {
-    margin-top: 80px;
+    margin-top: 300px;
     width: 7.5rem;
     height: 4rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .hero-arrow {
-    margin-top: 2rem;
+    display: none;
   }
   
   .arrow-down {
@@ -385,12 +388,3 @@
   }
 }
 
-/* Ajustes para telas muito pequenas */
-@media (max-width: 480px) {
-  .arrow-down {
-    margin-top: 80px;
-    width: 6rem;
-    height: 3.5rem;
-    font-size: 1.1rem;
-  }
-}
