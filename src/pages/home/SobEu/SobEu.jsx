@@ -23,8 +23,7 @@ const SobEu = ({ id }) => {
           </p></ScrollReveal>
           <ScrollReveal delay={0.4}><p>
             Iniciei minha jornada no mercado em <span className="destaque"><span className="icon">📅</span>2025</span>, mas estudo na área desde <span className="destaque"><span className="icon">📚</span>2023</span>,
-            quando entrei na faculdade. Atualmente também atuo em uma agência de marketing, a <span className="destaque"><span className="icon">🏢</span>U Can</span>,
-            onde participo de projetos e demandas reais diariamente.
+            quando entrei na faculdade.
           </p></ScrollReveal>
           <ScrollReveal delay={0.5}><p>
             Estou <span className="destaque"><span className="icon">✅</span>disponível para novos trabalhos</span> e pronto para entregar resultados
@@ -35,7 +34,15 @@ const SobEu = ({ id }) => {
             será um prazer conversar!
           </p></ScrollReveal>
           <ScrollReveal delay={0.7}>
-            <button className="sob-eu-cta">Vamos conversar</button>
+            <a 
+              href="https://wa.me/5516988278840" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sob-eu-cta"
+              style={{ textDecoration: 'none' }}
+            >
+              Vamos conversar
+            </a>
           </ScrollReveal>
           <ScrollReveal delay={0.8}>
             <div className="sob-eu-signature">

@@ -49,7 +49,7 @@ const Servicos = () => {
     <section 
       ref={sectionRef}
       className={`${styles.servicosContainer} ${isVisible ? styles.visible : ''}`}
-      id="servicos"
+      id="Servicos"
     >
       <div className={styles.servicosContent}>
         <motion.h2 
@@ -98,10 +98,16 @@ const Servicos = () => {
           transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className={styles.ctaText}>Pronto para transformar sua presença digital?</p>
-          <button className={styles.ctaButton}>
+          <a 
+            href="https://wa.me/5516988278840" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={styles.ctaButton}
+            style={{ textDecoration: 'none' }}
+          >
             Solicitar Orçamento
             <span className={styles.ctaIcon}>→</span>
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

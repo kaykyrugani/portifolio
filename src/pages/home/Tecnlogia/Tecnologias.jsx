@@ -5,18 +5,18 @@ import './Tecnologias.css';
 
 const technologies = [
   {
-    id: 'html',
-    name: 'HTML5',
-    icon: FaHtml5,
-    color: '#E34F26',
-    description: 'Conheci junto com o CSS, na faculdade, achei uma linguagem bacana de se trabalhar, já que ela é de marcação, e não achei tão complexo aprender e dar os primeiros passos nela.'
-  },
-  {
     id: 'css',
     name: 'CSS3',
     icon: FaCss3Alt,
     color: '#1572B6',
     description: 'Conheci na faculdade a um ano, desde então é a matéria que mais venho estudado e me aprofundado. Me despertando uma curiosidade de trabalhar com Front-End, com interação com o usuário, interfaces e responsividade.'
+  },
+  {
+    id: 'html',
+    name: 'HTML5',
+    icon: FaHtml5,
+    color: '#E34F26',
+    description: 'Conheci junto com o CSS, na faculdade, achei uma linguagem bacana de se trabalhar, já que ela é de marcação, e não achei tão complexo aprender e dar os primeiros passos nela.'
   },
   {
     id: 'js',

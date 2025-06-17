@@ -75,9 +75,12 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2, duration: 0.5 }}
+                style={{ pointerEvents: 'auto' }}
               >
                 <motion.a 
-                  href="#contato" 
+                  href="https://wa.me/5516988278840" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="cta-button primary"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -95,18 +98,9 @@ const Hero = () => {
                 </motion.a>
                 
                 <motion.a 
-                  href="#projetos" 
-                  className="cta-button secondary"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaCode className="button-icon" />
-                  <span>Ver Projetos</span>
-                </motion.a>
-                
-                <motion.a 
                   href="/curriculo.pdf" 
                   className="cta-button secondary"
+                  download="Kayky_Rugani_Curriculo.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
@@ -117,41 +111,40 @@ const Hero = () => {
                 </motion.a>
               </motion.div>
               
-              <motion.div 
-                className="social-links"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.4 }}
-              >
-                <motion.a 
-                  href="https://github.com/seu-usuario" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="social-link"
-                  whileHover={{ y: -3, color: '#6e5494' }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              <div className="social-links-container">
+                <motion.div 
+                  className="social-links"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.4 }}
                 >
-                  <FaGithub />
-                </motion.a>
-                <motion.a 
-                  href="https://linkedin.com/in/seu-perfil" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="social-link"
-                  whileHover={{ y: -3, color: '#0077b5' }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-                >
-                  <FaLinkedin />
-                </motion.a>
-              </motion.div>
-              
-              <div className="hero-arrow">
-                <div 
-                  className="arrow-down"
-                  onClick={() => scrollToSection('sobre')}
-                >
-                  <FaChevronDown />
-                </div>
+                  <a 
+                    href="https://github.com/kaykyrugani" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="social-link"
+                  >
+                    <motion.span
+                      whileHover={{ y: -3, color: '#6e5494' }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                    >
+                      <FaGithub />
+                    </motion.span>
+                  </a>
+                  <a 
+                    href="https://linkedin.com/in/kaykyrugani" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="social-link"
+                  >
+                    <motion.span
+                      whileHover={{ y: -3, color: '#0077b5' }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                    >
+                      <FaLinkedin />
+                    </motion.span>
+                  </a>
+                </motion.div>
               </div>
             </motion.div>
           </div>

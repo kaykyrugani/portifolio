@@ -155,6 +155,7 @@
   overflow: hidden;
   z-index: 1;
   width: 30% !important;
+  pointer-events: auto !important;
 }
 
 .cta-button.primary {
@@ -189,17 +190,24 @@
 }
 
 /* Ícones sociais */
+.social-links-container {
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .social-links {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin-top: 3rem;
+  width: 100%;
+  pointer-events: auto;
 }
 
 .social-link {
   color: #94a3b8;
   font-size: 1.5rem;
-  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -209,12 +217,24 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s ease;
 }
 
 .social-link:hover {
   color: #60a5fa;
   transform: translateY(-3px);
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
+
+.social-link span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 /* Animações de entrada */
@@ -336,55 +356,6 @@
   .cta-button {
     padding: 0.75rem 1.25rem;
     font-size: 0.9375rem;
-  }
-}
-
-/* Estilo para o ícone de seta para baixo */
-.hero-arrow {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 36%);
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  margin-bottom: 0;
-}
-
-.arrow-down {
-  margin-top: 286px;
-  color: #f8fafc;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 8.5rem;
-  height: 4.5rem;
-  border-radius: 18px 18px 50px 50px;
-  background: #1a1a1a;
-  transition: none;
-}
-
-@media (max-width: 1700px) {
-  .arrow-down {
-    margin-top: 300px;
-    width: 7.5rem;
-    height: 4rem;
-  }
-}
-
-@media (max-width: 900px) {
-  .hero-arrow {
-    display: none;
-  }
-  
-  .arrow-down {
-    margin-top: 120px;
-    width: 7rem;
-    height: 3.75rem;
-    font-size: 1.25rem;
   }
 }
 

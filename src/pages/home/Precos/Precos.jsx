@@ -5,26 +5,25 @@ import RocketImg from '../../../assets/imgs/Rocket.png';
 const Precos = () => {
   const planos = [
     {
-      nome: '1 Mês',
-      precoMensal: 'R$ 95',
-      precoAvista: 'R$ 95',
+      nome: '3 Meses',
+      precoMensal: 'R$ 115',
+      precoAvista: 'R$ 300',
       periodo: 'por mês',
-      destaque: false,
+      destaque: true,
+      economia: 'Economize R$ 15',
       beneficios: [
         'Hospedagem segura e rápida',
-        'Suporte 24/7',
+        'Suporte 5 dias por semana',
         'Backup diário',
-        'SSL grátis',
-        'E-mail profissional'
       ]
     },
     {
-      nome: '3 Meses',
-      precoMensal: 'R$ 85',
-      precoAvista: 'R$ 215',
+      nome: '6 Meses',
+      precoMensal: 'R$ 97',
+      precoAvista: 'R$ 532',
       periodo: 'por mês',
       destaque: true,
-      economia: 'Economize R$ 40',
+      economia: 'Economize R$ 50',
       beneficios: [
         'Tudo do Plano Mensal',
         'Domínio grátis*',
@@ -34,12 +33,12 @@ const Precos = () => {
       ]
     },
     {
-      nome: '6 Meses',
-      precoMensal: 'R$ 75',
-      precoAvista: 'R$ 390',
+      nome: '12 Meses',
+      precoMensal: 'R$ 85',
+      precoAvista: 'R$ 920',
       periodo: 'por mês',
       destaque: false,
-      economia: 'Economize R$ 120',
+      economia: 'Economize R$ 100',
       beneficios: [
         'Tudo do Plano Trimestral',
         'Otimização SEO avançada',
@@ -105,9 +104,15 @@ const Precos = () => {
                   <li key={i}>{beneficio}</li>
                 ))}
               </ul>
-              <button className="btncontato">
+              <a 
+                href="https://wa.me/5516988278840" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btncontato"
+                style={{ textDecoration: 'none' }}
+              >
                 Contratar Agora
-              </button>
+              </a>
             </div>
           ))}
         </div>

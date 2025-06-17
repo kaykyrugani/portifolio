@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt, FaWhatsapp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaFileAlt, FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import CurriculoPDF from '../../../assets/pdf/Curriculo.pdf';
 import './Contato.css';
@@ -42,9 +42,9 @@ const ContactCard = ({ icon: Icon, title, subtitle, link, onClick, isEmail = fal
 function Contato() {
   const [copySuccess, setCopySuccess] = useState(false);
   const email = "kayky.rugani@gmail.com";
-  const whatsappNumber = "+5511970000000"; // Substitua pelo seu número
+  const whatsappNumber = "5516988278840"; // Número de telefone sem o sinal de +
   const whatsappMessage = "Olá Kayky, vim pelo seu portfólio!";
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}`;
   const [visibleCards, setVisibleCards] = useState(0);
   const [sectionVisible, setSectionVisible] = useState(false);
   const sectionRef = useRef(null);
@@ -69,7 +69,7 @@ function Contato() {
 
   useEffect(() => {
     if (!sectionVisible) return;
-    if (visibleCards < 5) { // 5 cards
+    if (visibleCards < 6) { // 6 cards
       const timer = setTimeout(() => {
         setVisibleCards(prev => prev + 1);
       }, 150);
@@ -126,12 +126,19 @@ function Contato() {
           isVisible={visibleCards > 3}
         />
         <ContactCard
+          icon={FaInstagram}
+          title="Instagram"
+          subtitle="Me siga"
+          link="https://www.instagram.com/kaykyrugani"
+          isVisible={visibleCards > 4}
+        />
+        <ContactCard
           icon={FaFileAlt}
           title="Currículo"
           subtitle="Baixar em PDF"
           link={CurriculoPDF}
           download="Kayky_Curriculo.pdf"
-          isVisible={visibleCards > 4}
+          isVisible={visibleCards > 5}
         />
       </div>
       {copySuccess && (

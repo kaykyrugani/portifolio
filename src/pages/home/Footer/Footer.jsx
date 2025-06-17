@@ -48,11 +48,11 @@ const Footer = () => {
             <FaCode className="logo-icon" aria-hidden="true" />
             <h3 id="about-heading">Kayky Rugani</h3>
           </div>
-          <p className="tagline">Desenvolvedor Full Stack & Designer</p>
+          <p className="tagline">Desenvolvedor Full Stack</p>
           <p className="description">Transformando ideias em realidade através de códigos criativos e soluções inovadoras.</p>
           <div className="footer-social" aria-label="Redes sociais">
             <a 
-              href="https://github.com/seu-usuario" 
+              href="https://github.com/kaykyrugani" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="social-link"
@@ -61,7 +61,7 @@ const Footer = () => {
               <FaGithub className="social-icon" aria-hidden="true" />
             </a>
             <a 
-              href="https://linkedin.com/in/seu-perfil" 
+              href="https://www.linkedin.com/in/kaykyrugani/?originalSubdomain=br" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="social-link"
@@ -79,7 +79,7 @@ const Footer = () => {
               <FaInstagram className="social-icon" aria-hidden="true" />
             </a>
             <a 
-              href="mailto:seu-email@exemplo.com" 
+              href="mailto:Kaykyrugani@gmail.com" 
               className="social-link"
               aria-label="Enviar e-mail"
             >
@@ -93,11 +93,11 @@ const Footer = () => {
           <div className="contact-info">
             <div className="contact-item">
               <FaEnvelope className="contact-icon" aria-hidden="true" />
-              <a href="mailto:seu-email@exemplo.com" className="contact-link">seu-email@exemplo.com</a>
+              <a href="mailto:Kaykyrugani@gmail.com" className="contact-link">Kaykyrugani@gmail.com</a>
             </div>
             <div className="contact-item">
               <FaPhone className="contact-icon" aria-hidden="true" />
-              <a href="tel:5500000000000" className="contact-link">(00) 00000-0000</a>
+              <a href="tel:+5516988278840" className="contact-link">+55 16 98827-8840</a>
             </div>
           </div>
         </div>
