@@ -233,6 +233,10 @@
     min-width: 90px;
     max-width: 120px;
   }
+  .sob-eu-badge{
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+  }
   .sob-eu-content h2 {
     font-size: 1.2rem;
   }

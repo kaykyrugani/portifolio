@@ -65,7 +65,6 @@ const projetosData = [
     descricao: "O OnlyWave é um projeto em desenvolvimento que visa criar uma plataforma de marcketplace para a venda de produtos de moda.",
     imagem: Onlywave,
     githubLink: "https://github.com/kaykyrugani/onlywavestore",
-    demoLink: "onlywavestore-ptk2.vercel.app",
     tecnologias: ["ViteReact", "Java Script", "TypeScript", "Node.js","PostgreSQL", "Prisma"],
   }
 ];

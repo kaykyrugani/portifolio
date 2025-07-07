@@ -14,7 +14,7 @@ import Servicos from '../../pages/home/Servicos/Servicos.jsx'
 function Home() {
   return (
     <>
-      <div class="content">
+      <div className="content">
         <ParticleBackground />
         <Header />
         <Hero />

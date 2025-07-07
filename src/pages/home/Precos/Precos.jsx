@@ -19,8 +19,8 @@ const Precos = () => {
     },
     {
       nome: '6 Meses',
-      precoMensal: 'R$ 97',
-      precoAvista: 'R$ 532',
+      precoMensal: 'R$ 95',
+      precoAvista: 'R$ 535',
       periodo: 'por mês',
       destaque: true,
       economia: 'Economize R$ 50',
