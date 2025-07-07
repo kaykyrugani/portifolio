@@ -7,7 +7,7 @@ import TestePortifolioImg from '../../../assets/imgs/TestePortifolio.png';
 import Onlywave from '../../../assets/imgs/OnlyWave.png';
 import AIC from '../../../assets/imgs/AIC.png';
 import UCan from '../../../assets/imgs/U-Can.png';
-import TopLocacoes from '../../../assets/imgs/TopLocacoes.png';
+import TopLocacoes from '../../../assets/imgs/Toplocacoes.png';
 import './Projeto.css';
 
 // Array de dados dos projetos - facilita a manutenção e adição de novos projetos
